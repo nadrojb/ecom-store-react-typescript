@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SideBar from "../../Components/SideBar";
 
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,7 +28,21 @@ function Home() {
     getProducts(setProducts);
   }, []);
 
-  return <></>;
+  return (
+    <>
+      <section className="grid grid-cols-2">
+        <div className="">
+          <SideBar />
+        </div>
+        <div>
+          <h1>products</h1>
+          <h1>products</h1>
+          <h1>products</h1>
+          <h1>products</h1>
+        </div>
+      </section>
+    </>
+  );
 }
 
 export default Home;

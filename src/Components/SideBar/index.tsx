@@ -1,7 +1,7 @@
 function SideBar() {
   return (
     <>
-      <section className="h-lvh border-r border-slate-300 w-10/12 lg:block lg:w-2/12 lg:border-none hidden">
+      <section className="h-lvh border-r border-slate-300 w-10/12 lg:block lg:w-2/12 lg:border-none">
         <div className=" ml-10 pt-16 lg:ml-4">
           <img
             className="w-52 border-b pb-3 border-slate-600"
