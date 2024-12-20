@@ -1,7 +1,8 @@
 import { useState } from "react";
 import FormatPrice from "../../Utilities/FormatPrice";
+import { Product } from "../../Pages/Home";
 
-function ProductCard({ product }) {
+function ProductCard({ product }: Product) {
   const [quantity, setQuantity] = useState(0);
   return (
     <>
@@ -9,8 +10,8 @@ function ProductCard({ product }) {
         <div className="h-48 border-white rounded-md mb-2 lg:mb-6">
           <img
             className="w-24 mx-auto mt-4 lg:w-32 "
-            src={product.image}
-            alt=""
+            src={product.image }
+            alt={product.title}
           />
         </div>
         <div>

@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+
 function Cart() {
   return (
     <>
@@ -17,6 +18,7 @@ function Cart() {
           <h1 className="text-xl font-medium">LeShop</h1>
         </div>
       </section>
+   
     </>
   );
 }
