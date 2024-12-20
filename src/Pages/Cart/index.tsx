@@ -3,7 +3,7 @@ function Cart() {
   return (
     <>
       <section className="py-5 border-b shadow-md w-full">
-        <div className="flex justify justify-between px-4">
+        <div className="flex justify justify-between px-8">
           <Link to={"/"}>
             <svg
               className="w-7 bg-gray"

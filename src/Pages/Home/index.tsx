@@ -31,7 +31,8 @@ function Home() {
   return (
     <>
       <section className="py-5 border-b shadow-md w-full">
-        <div className="flex justify justify-between px-4">
+        <div className="flex justify justify-between px-8">
+          <span className="bg-red-500 rounded-full px-2 text-white absolute right-4 top-2 -z-10">0</span>
           <h1 className="text-xl font-medium">LeShop</h1>
           <div className="flex items-center">
             <h2 className="mr-3 text-xl font-medium">Filters</h2>
