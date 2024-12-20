@@ -1,6 +1,10 @@
 import { Link } from "react-router";
+import { useCart } from "../../context/CartContext";
 
 function Cart() {
+  const { cartItems } = useCart();
+  console.log(cartItems);
+
   return (
     <>
       <section className="py-5 border-b shadow-md w-full">
@@ -18,7 +22,6 @@ function Cart() {
           <h1 className="text-xl font-medium">LeShop</h1>
         </div>
       </section>
-   
     </>
   );
 }
