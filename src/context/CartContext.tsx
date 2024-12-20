@@ -21,11 +21,10 @@ const CartContext = createContext({} as CartContext);
 export function useCart() {
   return useContext(CartContext);
 }
-
 export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  function getItemQuantity() {
+  function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
 
@@ -63,7 +62,7 @@ export function CartProvider({ children }: CartProviderProps) {
 
   function removeFromCart() {
     setCartItems((currentItems) => {
-      return currentItems.filter((item) => item.id !== id);
+      return currentItems.filter((item) => item.id !== product.id);
     });
   }
 
