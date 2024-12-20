@@ -1,6 +1,8 @@
+import { useState } from "react";
 import FormatPrice from "../../Utilities/FormatPrice";
 
 function ProductCard({ product }) {
+  const [quantity, setQuantity] = useState(0);
   return (
     <>
       <div className="border-white bg-white px-2 py-2 rounded-md shadow-md">
@@ -12,11 +14,25 @@ function ProductCard({ product }) {
           />
         </div>
         <div>
-            <h3 className="text-xs mb-4 px-4">{product.title}</h3>
+          <h3 className="text-xs mb-4 px-4">{product.title}</h3>
         </div>
         <div className="text-center px-4 pb-2 lg:flex lg:justify-between lg:items-center ">
           <h3 className="mb-2">${FormatPrice(product.price)}</h3>
-          <button className="bg-gray-300 px-2 py-0.5 rounded-md border-gray-300 border-2 hover:bg-white">Add to cart</button>
+          {quantity === 0 ? (
+            <button className="bg-gray-300 px-2 py-0.5 rounded-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+              Add to cart
+            </button>
+          ) : (
+            <div className="flex justify-center">
+              <button className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+                -
+              </button>
+              <h3 className="pl-2 pr-2">0</h3>
+              <button className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+                +
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>
