@@ -81,7 +81,7 @@ function Home() {
       </section>
 
 
-      <section className="grid grid-cols-2 px-6 gap-6 pt-10 bg-gray-50">
+      <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
       {products.map((product) => {
         return (
           <ProductCard product={product} key={product.id} />
