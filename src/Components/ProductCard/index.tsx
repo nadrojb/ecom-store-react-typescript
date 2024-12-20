@@ -1,7 +1,13 @@
 function ProductCard({ product }) {
   return (
     <>
-      <h1></h1>
+      <div>
+        <img src={product.image} alt="" />
+        <div className="flex justify-between px-4">
+          <h3>{product.price}</h3>
+          <h3 className="">add</h3>
+        </div>
+      </div>
     </>
   );
 }

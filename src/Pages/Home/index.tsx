@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProductCard from "../../Components/ProductCard";
 
 export type Product = {
   id: number;
@@ -78,8 +79,16 @@ function Home() {
         </form>
         </div>
       </section>
-    </>
+      <section>
+      {products.map((product) => {
+  return (
+    <ProductCard product={product} key={product.id} />
   );
+})}
+
+      </section>
+    </>
+      )
 }
 
 export default Home;
