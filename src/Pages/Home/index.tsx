@@ -1,6 +1,7 @@
 import { SetStateAction, useEffect, useState } from "react";
 import ProductCard from "../../Components/ProductCard";
 import { Link } from "react-router";
+import { useCart } from "../../context/CartContext";
 
 export type Product = {
   id: number;
@@ -14,10 +15,14 @@ export type Product = {
     count: number;
   };
 };
-function Home() {
+function Home({}) {
   const [products, setProducts] = useState<Product[]>([]);
+  const { cartQuantity } = useCart();
 
-  async function getProducts(setProducts: { (value: SetStateAction<Product[]>): void; (arg0: Product): void; }) {
+  async function getProducts(setProducts: {
+    (value: SetStateAction<Product[]>): void;
+    (arg0: Product): void;
+  }) {
     const json = await fetch(`https://fakestoreapi.com/products`);
     const productsData: Product = await json.json();
     setProducts(productsData);
@@ -32,19 +37,37 @@ function Home() {
     <>
       <section className="py-5 border-b shadow-md w-full">
         <div className="flex justify justify-between px-8">
-          <span className="bg-red-500 rounded-full px-2 text-white absolute right-4 top-2 hidden">0</span>
           <h1 className="text-xl font-medium">LeShop</h1>
           <div className="flex items-center">
             <h2 className="mr-3 text-xl font-medium">Filters</h2>
-            <Link to={"/cart"}>
-              <svg
-                className="w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512"
-              >
-                <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
-              </svg>
-            </Link>
+            {cartQuantity === 0 ? (
+              <>
+                <Link to={"/cart"}>
+                  <svg
+                    className="w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                  >
+                    <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
+                </Link>
+              </>
+            ) : (
+              <>
+                <span className="bg-red-500 rounded-full px-2 text-white absolute right-4 top-2">
+                  {cartQuantity}
+                </span>
+                <Link to={"/cart"}>
+                  <svg
+                    className="w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                  >
+                    <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </section>
