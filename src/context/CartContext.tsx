@@ -45,7 +45,23 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   }
 
-  
+  function decreaseCartQuantity(id: number) {
+    setCartItems((currentItems) => {
+      if (currentItems.find((item) => item.id === id)?.quantity == null) {
+        return currentItems.filter(item => item.id !== id)
+      } else {
+        return currentItems.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  }
+
+
 
   return (
     <CartContext.Provider
