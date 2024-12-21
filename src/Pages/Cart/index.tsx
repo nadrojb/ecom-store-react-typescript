@@ -1,9 +1,9 @@
 import { Link } from "react-router";
+import CartProductCard from "../../Components/CartProductCard";
 import { useCart } from "../../context/CartContext";
 
 function Cart() {
   const { cartItems } = useCart();
-  console.log(cartItems);
 
   return (
     <>
@@ -22,6 +22,11 @@ function Cart() {
           <h1 className="text-xl font-medium">LeShop</h1>
         </div>
       </section>
+      <div>
+        {cartItems.map((cartItem) => {
+          return <CartProductCard cartItem={cartItem} key={cartItem.id} />;
+        })}
+      </div>
     </>
   );
 }
