@@ -1,14 +1,14 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; 
 import CartProductCard from "../../Components/CartProductCard";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext"; 
 
 function Cart() {
-  const { cartItems } = useCart();
+  const { cartItems } = useCart(); 
 
   return (
     <>
       <section className="py-5 border-b shadow-md w-full">
-        <div className="flex justify justify-between px-8">
+        <div className="flex justify-between px-8">
           <Link to={"/"}>
             <svg
               className="w-7 bg-gray"
@@ -22,10 +22,11 @@ function Cart() {
           <h1 className="text-xl font-medium">LeShop</h1>
         </div>
       </section>
+
       <div>
-        {cartItems.map((cartItem) => {
-          return <CartProductCard cartItem={cartItem} key={cartItem.id} />;
-        })}
+        {cartItems.map((item) => (
+          <CartProductCard key={item.id} id={item.id} quantity={item.quantity} />
+        ))}
       </div>
     </>
   );
