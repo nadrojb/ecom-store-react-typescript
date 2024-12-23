@@ -18,6 +18,7 @@ export type Product = {
 function Home({}) {
   const [products, setProducts] = useState<Product[]>([]);
   const { cartQuantity } = useCart();
+  const [filtersState, setFiltersState] = useState("");
 
   async function getProducts(setProducts: {
     (value: SetStateAction<Product[]>): void;
@@ -39,7 +40,6 @@ function Home({}) {
         <div className="flex justify justify-between px-8">
           <h1 className="text-xl font-medium">LeShop</h1>
           <div className="flex items-center">
-            <h2 className="mr-3 text-xl font-medium">Filters</h2>
             {cartQuantity === 0 ? (
               <>
                 <Link to={"/cart"}>
@@ -71,15 +71,22 @@ function Home({}) {
           </div>
         </div>
       </section>
-      <section className="text-slate-800 fixed top-0 left-0 w-full h-screen z-20  font-sans hidden">
+      <section
+        className={`${filtersState} text-slate-800 fixed top-0 left-0 w-full h-screen z-20 bg-white font-sans`}
+      >
         <div>
-          <svg
-            className="w-4 mx-6 my-6 float-right"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 384 512"
+          <button
+            onClick={() => setFiltersState("hidden")}
+            className={`cursor-pointer float-right mx-6 my-6 `}
           >
-            <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-          </svg>
+            <svg
+              className="w-4 "
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+            >
+              <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
+            </svg>
+          </button>
         </div>
         <div className="mx-auto w-1/2 mt-24">
           <img className="w-40 mx-auto" src="leshop.png" alt="" />
@@ -108,6 +115,11 @@ function Home({}) {
               </label>
               <input type="checkbox" name="womens" id="" />
             </div>
+            <input
+              type="submit"
+              value="Apply filters"
+              className="bg-gray-300 cursor-pointer rounded-md px-8 py-3 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in mt-4"
+            />
           </form>
         </div>
       </section>
