@@ -21,14 +21,10 @@ function Home({}) {
   const [filtersState, setFiltersState] = useState("");
   const [isLoading, serIsLoading] = useState(false);
 
-  async function getProducts(setProducts: {
-    (value: SetStateAction<Product[]>): void;
-    (arg0: Product): void;
-  }) {
+  async function getProducts(setProducts) {
     const json = await fetch(`https://fakestoreapi.com/products`);
     const productsData: Product = await json.json();
     setProducts(productsData);
-    console.log(products);
   }
 
   useEffect(() => {
