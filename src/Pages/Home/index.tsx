@@ -127,7 +127,7 @@ function Home({}) {
       <div className="mx-auto text-center mt-3">
         <h3>Products loading...</h3>
 
-        <svg className="animate-spin h-6 w-6 border-t-4 border-b-4 rounded-full border-red-500"></svg>
+        <svg className="animate-spin h-6 w-6 border-t-4 border-b-4 rounded-full border-cyan-400"></svg>
       </div>
       <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
         {products.map((product) => {
