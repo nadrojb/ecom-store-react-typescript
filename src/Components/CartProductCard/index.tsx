@@ -8,6 +8,7 @@ type CartProductCardProps = {
 function CartProductCard({ id, quantity }: CartProductCardProps) {
   const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, cartItems } = useCart(); 
 
+ console.log(cartItems);
  
 
   return (
@@ -18,14 +19,14 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
       </div>
       <div className="flex items-center space-x-4">
         <button
-          onClick={increaseCartQuantity}
+          onClick={decreaseCartQuantity}
           className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
         >
           -
         </button>
         <h3>{quantity}</h3>
         <button
-          onClick={decreaseCartQuantity}
+          onClick={increaseCartQuantity}
           className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
         >
           +
