@@ -3,19 +3,35 @@ import { useCart } from "../../context/CartContext";
 type CartProductCardProps = {
   id: number;
   quantity: number;
+  title: string;
+  price: number;
+  image: string;
 };
 
 function CartProductCard({ id, quantity }: CartProductCardProps) {
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, cartItems } = useCart(); 
+  const {
+    removeFromCart,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    cartItems,
+  } = useCart();
 
- console.log(cartItems);
- 
+  const newProduct = cartItems.find((item) => item.id === id)
+
+  const {price, image, title} = newProduct;
+
+  console.log(newProduct);
+  
 
   return (
     <section className="flex items-center justify-between my-4 border-b py-4">
       <div className="flex items-center">
-        <img src={`${id}.jpg`} alt="Product" className="w-20 h-20 object-cover" />
-        <h3 className="pl-4">{`Product ${id}`}</h3>
+        <img
+          src={image}
+          alt="Product"
+          className="w-20 h-20 object-cover"
+        />
+        <h3 className="pl-4">{title}</h3>
       </div>
       <div className="flex items-center space-x-4">
         <button

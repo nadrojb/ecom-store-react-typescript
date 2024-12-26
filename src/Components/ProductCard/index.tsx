@@ -38,7 +38,7 @@ function ProductCard({ product }: Product) {
                 -
               </button>
               <h3 className="pl-2 pr-2">{quantity}</h3>
-              <button onClick={() => increaseCartQuantity(product.id, product.title, product.image)} className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+              <button onClick={() => increaseCartQuantity(product.id, product.title, product.image, product.price)} className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
                 +
               </button>
             </div>

@@ -14,6 +14,7 @@ type CartItem = {
   quantity: number;
   title: string;
   price: number;
+  image: string;
 };
 
 type CartProviderProps = {
@@ -32,16 +33,24 @@ export function CartProvider({ children }: CartProviderProps) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
 
-  function increaseCartQuantity(id: number, title: string, price: number) {
+  function increaseCartQuantity(
+    id: number,
+    title: string,
+    price: number,
+    image: string
+  ) {
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id === id) == null) {
-        return [...currentItems, { id, quantity: 1, title, price }];
+        return [...currentItems, { id, quantity: 1, title, price, image }];
       } else {
         return currentItems.map((item) => {
           if (item.id === id) {
             return {
               ...item,
               quantity: item.quantity + 1,
+              title: item.title,
+              image: item.image,
+              price: item.price,
             };
           } else {
             return item;
