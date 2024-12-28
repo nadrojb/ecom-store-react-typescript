@@ -17,24 +17,19 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
     cartItems,
   } = useCart();
 
-  const newProduct = cartItems.find((item) => item.id === id)
+  const newProduct = cartItems.find((item) => item.id === id);
 
-  const {price, image, title} = newProduct;
-
-  console.log(newProduct);
-  
+  const { price, image, title } = newProduct;
 
   return (
     <section className="flex items-center justify-between my-4 border-b py-4 px-2 sm:w-2/3 mx-auto">
       <div className="flex item-center">
-        <img
-          src={image}
-          alt="Product"
-          className="w-20 object-cover"
-        />
+        <img src={image} alt="Product" className="w-20 object-cover" />
         <div className="pl-4 sm:pl-6 w-8/12">
-        <h3 className="text-xs mb-1">{title}</h3>
-        <p className="text-xs font-medium">{quantity} @ ${FormatPrice(price)} each</p>
+          <h3 className="text-xs mb-1">{title}</h3>
+          <p className="text-xs font-medium">
+            {quantity} @ ${FormatPrice(price)} each
+          </p>
         </div>
       </div>
       <div className="flex items-center space-x-4">

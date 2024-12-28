@@ -24,7 +24,7 @@ function Cart() {
 
       <div>
         {cartItems.map((item) => (
-          <CartProductCard key={item.id} id={item.id} quantity={item.quantity} />
+          <CartProductCard key={item.id} id={item.id} quantity={item.quantity} title={item.title} image={item.image} price={item.price} />
         ))}
       </div>
     </>

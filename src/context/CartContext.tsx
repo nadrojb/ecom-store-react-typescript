@@ -48,7 +48,7 @@ export function CartProvider({ children }: CartProviderProps) {
             return {
               ...item,
               quantity: item.quantity + 1,
-          };
+            };
           } else {
             return item;
           }
@@ -64,7 +64,7 @@ export function CartProvider({ children }: CartProviderProps) {
       } else {
         return currentItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1 };
+            return { ...item, quantity: item.quantity - 1 }
           } else {
             return item;
           }
@@ -73,7 +73,7 @@ export function CartProvider({ children }: CartProviderProps) {
     });
   }
 
-  function removeFromCart() {
+  function removeFromCart(id: number) {
     setCartItems((currentItems) => {
       return currentItems.filter((item) => item.id !== id);
     });
