@@ -22,8 +22,8 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
   const { price, image, title } = newProduct;
 
   return (
-    <section className="flex items-center justify-between my-4 border-b py-4 px-2 sm:w-2/3 mx-auto">
-      <div className="flex item-center">
+    <section className="flex items-center justify-between my-4 border-b py-4 px-4 sm:w-2/3 mx-auto">
+      <div className="flex items-center">
         <img src={image} alt="Product" className="w-20 object-cover" />
         <div className="pl-4 sm:pl-6 w-8/12">
           <h3 className="text-xs mb-1">{title}</h3>
@@ -50,9 +50,8 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
         >
           +
         </button>
-
         <svg
-        onClick={() => removeFromCart(id)}
+          onClick={() => removeFromCart(id)}
           className="w-4 cursor-pointer hover:scale-125 transition hover:ease-in-out"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
