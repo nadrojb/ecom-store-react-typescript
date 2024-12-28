@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext";
+import FormatPrice from "../../Utilities/FormatPrice";
 
 type CartProductCardProps = {
   id: number;
@@ -24,16 +25,16 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
   
 
   return (
-    <section className="flex items-center justify-between my-4 border-b py-4">
+    <section className="flex items-center justify-between my-4 border-b py-4 px-2 sm:w-2/3 mx-auto">
       <div className="flex items-center">
         <img
           src={image}
           alt="Product"
-          className="w-20 h-20 object-cover"
+          className="w-20 object-cover"
         />
-        <div className="pl-4">
-        <h3>{title}</h3>
-        <p>{quantity} @ ${price} each</p>
+        <div className="pl-4 w-8/12">
+        <h3 className="text-xs mb-1">{title}</h3>
+        <p className="text-xs font-medium">{quantity} @ ${FormatPrice(price)} each</p>
         </div>
       </div>
       <div className="flex items-center space-x-4">
