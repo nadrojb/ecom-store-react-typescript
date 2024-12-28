@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import CartProductCard from "../../Components/CartProductCard";
-import { useCart } from "../../context/CartContext"; 
+import { useCart } from "../../context/CartContext";
 
 function Cart() {
-  const { cartItems } = useCart(); 
+  const { cartItems } = useCart();
 
   return (
     <>
@@ -24,8 +24,31 @@ function Cart() {
 
       <div>
         {cartItems.map((item) => (
-          <CartProductCard key={item.id} id={item.id} quantity={item.quantity} title={item.title} image={item.image} price={item.price} />
+          <CartProductCard
+            key={item.id}
+            id={item.id}
+            quantity={item.quantity}
+            title={item.title}
+            image={item.image}
+            price={item.price}
+          />
         ))}
+      </div>
+      <div className="bg-gray-200 rounded-tl-sm rounded-tr-sm px-4 py-4 fixed bottom-0 w-full">
+        <div className="flex justify-between text-sm">
+          <h4 className="text-gray-600">SUBTOTAL</h4>
+          <h4 className="font-semibold">$109.00</h4>
+        </div>
+        <div>
+          <button className="w-full text-center bg-green-600 rounded-sm text-sm h-10 my-4">
+            CHECKOUT
+          </button>
+          <Link to={"/"}>
+            <p className="text-center text-xs text-gray-600 underline">
+              Continue Shopping
+            </p>
+          </Link>
+        </div>
       </div>
     </>
   );
