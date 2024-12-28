@@ -48,10 +48,7 @@ export function CartProvider({ children }: CartProviderProps) {
             return {
               ...item,
               quantity: item.quantity + 1,
-              title: item.title,
-              image: item.image,
-              price: item.price,
-            };
+          };
           } else {
             return item;
           }

@@ -27,7 +27,7 @@ function ProductCard({ product }: Product) {
           <h3 className="mb-2">${FormatPrice(product.price)}</h3>
           {quantity === 0 ? (
             <button
-              onClick={() => increaseCartQuantity(product.id)}
+              onClick={() => increaseCartQuantity(product.id, product.title, product.price, product.image )}
               className="bg-gray-300 px-2 py-0.5 rounded-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
             >
               Add to cart
