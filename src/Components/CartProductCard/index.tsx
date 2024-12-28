@@ -34,7 +34,7 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
       </div>
       <div className="flex items-center space-x-4">
         <button
-          onClick={() => decreaseCartQuantity(id)}
+          onClick={quantity === 1 ? () => removeFromCart(id) : (() => decreaseCartQuantity(id))}
           className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
         >
           -
@@ -46,6 +46,7 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
         >
           +
         </button>
+        <button onClick={() => removeFromCart(id)}>remove</button>
       </div>
     </section>
   );

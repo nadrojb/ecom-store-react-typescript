@@ -34,7 +34,7 @@ function ProductCard({ product }: Product) {
             </button>
           ) : (
             <div className="flex justify-center">
-              <button onClick={() => decreaseCartQuantity(product.id)} className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+              <button onClick={quantity === 1 ? () => removeFromCart(product.id) : (() => decreaseCartQuantity(product.id))} className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
                 -
               </button>
               <h3 className="pl-2 pr-2">{quantity}</h3>
