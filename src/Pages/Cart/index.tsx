@@ -19,7 +19,6 @@ function Cart() {
             </svg>
           </Link>
           <h2 className="text-xl font-medium">Cart</h2>
-          <h1 className="text-xl font-medium">LeShop</h1>
         </div>
       </section>
 
