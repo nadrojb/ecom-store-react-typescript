@@ -31,7 +31,10 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
           alt="Product"
           className="w-20 h-20 object-cover"
         />
-        <h3 className="pl-4">{title}</h3>
+        <div className="pl-4">
+        <h3>{title}</h3>
+        <p>{quantity} @ ${price} each</p>
+        </div>
       </div>
       <div className="flex items-center space-x-4">
         <button
