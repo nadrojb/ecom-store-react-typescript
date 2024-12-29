@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import CartProductCard from "../../Components/CartProductCard";
 import { useCart } from "../../context/CartContext";
 import FormatPrice from "../../Utilities/FormatPrice";
-import { useState } from "react";
+
 
 function Cart() {
   const { cartItems, subTotal, cartQuantity } = useCart();
