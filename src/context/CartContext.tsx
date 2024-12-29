@@ -7,6 +7,7 @@ type CartContext = {
   removeFromCart: (id: number) => void;
   cartQuantity: number;
   cartItems: CartItem[];
+  subTotal: number;
 };
 
 type CartItem = {
@@ -83,6 +84,10 @@ export function CartProvider({ children }: CartProviderProps) {
     (quantity, item) => item.quantity + quantity,
     0
   );
+
+  function subTotal (quantity: number, price: number) {
+      return quantity * price;
+  }
 
 
   return (
