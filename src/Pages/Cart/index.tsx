@@ -3,7 +3,7 @@ import CartProductCard from "../../Components/CartProductCard";
 import { useCart } from "../../context/CartContext";
 
 function Cart() {
-  const { cartItems } = useCart();
+  const { cartItems, subTotal } = useCart();
 
   return (
     <>
@@ -37,7 +37,7 @@ function Cart() {
       <div id="mobile-subtotal-section" className="bg-gray-200 rounded-tl-sm rounded-tr-sm px-4 py-4 fixed bottom-0 w-full">
         <div className="flex justify-between text-sm sm:text-lg">
           <h4 className="text-gray-600">SUBTOTAL</h4>
-          <h4 className="font-semibold">$10</h4>
+          <h4 className="font-semibold">{subTotal}</h4>
         </div>
         <div>
           <button className="w-full text-center bg-green-600 rounded-sm text-sm h-10 my-4 sm:text-lg">

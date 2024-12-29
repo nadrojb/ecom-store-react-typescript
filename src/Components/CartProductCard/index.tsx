@@ -28,7 +28,7 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
         <div className="pl-4 sm:pl-6 w-8/12">
           <h3 className="text-xs mb-1">{title}</h3>
           <p className="text-xs font-medium">
-            {quantity} @ ${FormatPrice(quantity * price)} 
+            {quantity} @ ${FormatPrice(price)} each 
           </p>
         </div>
       </div>
@@ -60,6 +60,7 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
         </svg>
       </div>
     </section>
+
   );
 }
 

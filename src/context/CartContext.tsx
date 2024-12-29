@@ -85,10 +85,10 @@ export function CartProvider({ children }: CartProviderProps) {
     0
   );
 
-  function subTotal (quantity: number, price: number) {
-      return quantity * price;
-  }
-
+  const subTotal = cartItems.reduce(
+    (quantity, item) => item.quantity * item.price,
+    0
+  );
 
   return (
     <CartContext.Provider
@@ -99,6 +99,7 @@ export function CartProvider({ children }: CartProviderProps) {
         removeFromCart,
         cartItems,
         cartQuantity,
+        subTotal
       }}
     >
       {children}
