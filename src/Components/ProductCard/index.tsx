@@ -24,7 +24,7 @@ function ProductCard({ product }: Product) {
           <h3 className="text-xs mb-4 px-4">{product.title}</h3>
         </div>
         <div className="text-center px-4 pb-2 lg:flex lg:justify-between lg:items-center ">
-          <h3 className="mb-2">${FormatPrice(product.price)}</h3>
+          <h3 className="mb-2">£{FormatPrice(product.price)}</h3>
           {quantity === 0 ? (
             <button
               onClick={() => increaseCartQuantity(product.id, product.title, product.price, product.image )}
