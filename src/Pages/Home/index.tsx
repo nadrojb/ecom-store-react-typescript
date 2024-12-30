@@ -31,9 +31,7 @@ function Home({}) {
   }
 
   useEffect(() => {
-
-      getProducts(setProducts);
-    
+    getProducts(setProducts);
   }, [category]);
 
   return (
@@ -75,13 +73,53 @@ function Home({}) {
       </section>
       <div
         id="filetering-modal"
-        className={`mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  py-7 w-48 text-center space-y-2 font-medium sm:py-11 sm:px-24 lg:px-20 lg:py-7 rounded-md bg-gray-100 shadow-sm ${modalState}`}
+        className={`flex flex-col px-10 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-7 w-52 text-center space-y-2 font-medium rounded-md bg-gray-100 shadow-sm ${modalState}`}
       >
-        <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('')} >All products</button>
-        <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/electronics')} >Electronics</button>
-        <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/jewelery')}>Jewelry</button>
-        <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/men\'s clothing')}>Men's Clothing</button>
-        <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/women\'s clothing')}>Womens Clothing</button>
+        <button
+          className=" hover:underline active:underline cursor-pointer"
+          onClick={() => {
+            setCategory("");
+            setModalState("hidden");
+          }}
+        >
+          All products
+        </button>
+        <button
+          className=" hover:underline active:underline cursor-pointer"
+          onClick={() => {
+            setCategory("/category/electronics");
+            setModalState("hidden");
+          }}
+        >
+          Electronics
+        </button>
+        <button
+          className="hover:underline active:underline cursor-pointer"
+          onClick={() => {
+            setCategory("/category/jewelery");
+            setModalState("hidden");
+          }}
+        >
+          Jewelry
+        </button>
+        <button
+          className="hover:underline active:underline cursor-pointer"
+          onClick={() => {
+            setCategory("/category/men\'s clothing");
+            setModalState("hidden");
+          }}
+        >
+          Men's Clothing
+        </button>
+        <button
+          className="hover:underline active:underline cursor-pointer"
+          onClick={() => {
+            setCategory("/category/women\'s clothing");
+            setModalState("hidden");
+          }}
+        >
+          Womens Clothing
+        </button>
       </div>
 
       {isLoading ? (
@@ -119,7 +157,10 @@ function Home({}) {
         </div>
       )}
 
-      <section onClick={() => setModalState('hidden')}  className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
+      <section
+        onClick={() => setModalState("hidden")}
+        className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 "
+      >
         {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}
