@@ -22,7 +22,7 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
   const { price, image, title } = newProduct;
 
   return (
-    <section className="flex items-center justify-between my-4 border-b py-4 px-4 sm:w-2/3 mx-auto">
+    <section className="flex items-center justify-between border-b py-5 px-4 sm:w-2/3 mx-auto lg:w-full">
       <div className="flex items-center">
         <img src={image} alt="Product" className="w-20 object-cover" />
         <div className="pl-4 sm:pl-6 w-8/12">

@@ -35,19 +35,26 @@ function Cart() {
         </>
       ) : (
         <>
-          <div>
+        <div className="text-center text-xl font-medium mt-5 sm:text-2xl md:text-3xl md:mt-7">
+        <span className="bg-red-500 rounded-full px-1 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
+                  {cartQuantity}
+                </span>
+          Your Cart
+        </div>
+        <section className="lg:flex space-x-8 px-6 mt-4">
+          <div className="w-9/12">
             {cartItems.map((item) => (
               <CartProductCard
-                key={item.id}
-                id={item.id}
-                quantity={item.quantity}
-                title={item.title}
-                image={item.image}
-                price={item.price}
+              key={item.id}
+              id={item.id}
+              quantity={item.quantity}
+              title={item.title}
+              image={item.image}
+              price={item.price}
               />
             ))}
           </div>
-          <div className="bg-gray-200 rounded-tl-sm rounded-tr-sm px-4 py-4 fixed bottom-0 w-full sm:px-10 md:px-10 lg:px-10">
+          <div className="bg-gray-200  px-4 py-4 mx-2 mb-4 rounded-md sm:w-2/3 sm:mx-auto lg:w-3/12 lg:h-fit">
             <div className="flex justify-between text-sm sm:text-lg">
               <h4 className="text-gray-600">SUBTOTAL</h4>
               <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
@@ -63,6 +70,7 @@ function Cart() {
               </Link>
             </div>
           </div>
+            </section>
         </>
       )}
     </>
