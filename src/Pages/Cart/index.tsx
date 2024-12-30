@@ -25,12 +25,8 @@ function Cart() {
       </section>
       {cartQuantity === 0 ? (
         <>
-      <span className="absolute top-3 left-16 flex h-3 w-3">
-  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-  <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-</span>
-          <div className="mx-auto text-center mt-20">
-            <h2 className="text-3xl">Your Cart is Empty.</h2>
+            <div className="mx-auto text-center mt-24">
+            <h2 className="text-2xl">Your Cart is Empty.</h2>
           </div>
         </>
       ) : (

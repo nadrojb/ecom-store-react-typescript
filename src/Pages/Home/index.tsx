@@ -35,10 +35,10 @@ function Home({}) {
 
   return (
     <>
-      <section className="py-5 border-b shadow-md w-full">
+      <section className="py-5 border-b shadow-md w-full fixed z-10 bg-white top-0">
         <div className="flex justify justify-between px-8">
           <h1 className="text-xl font-medium">LeShop</h1>
-          <div className="flex items-center">
+          <div className="flex items-center ">
             {cartQuantity === 0 ? (
               <>
                 <Link to={"/cart"}>
@@ -124,7 +124,7 @@ function Home({}) {
       </section>
 
       {isLoading ? (
-        <div className="mx-auto text-center mt-10">
+        <div className="mx-auto text-center mt-24">
           <h3>
             Products loading...
             <span className="absolute">
@@ -148,7 +148,7 @@ function Home({}) {
           </h3>
         </div>
       ) : null}
-      <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
+      <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 mt-14">
         {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}
