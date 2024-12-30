@@ -86,7 +86,7 @@ export function CartProvider({ children }: CartProviderProps) {
   );
 
   const subTotal = cartItems.reduce(
-    (quantity, item) => item.quantity * item.price,
+    (total, item) => total + item.quantity * item.price,
     0
   );
 
