@@ -52,15 +52,15 @@ function Cart() {
           </div>
           <div className="bg-gray-200  px-4 py-4 mx-2 mb-4 rounded-md sm:w-2/3 sm:mx-auto lg:w-3/12 lg:h-fit">
             <div className="flex justify-between text-sm sm:text-lg">
-              <h4 className="text-gray-600">SUBTOTAL</h4>
+              <h4 className="text-gray-900">SUBTOTAL</h4>
               <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
             </div>
             <div>
-              <button className="w-full text-center bg-green-600 rounded-md text-sm h-12 my-4 sm:text-lg">
+              <button className="w-full text-center text-gray-900 bg-green-600 rounded-md text-sm h-12 my-4 sm:text-lg">
                 CHECKOUT
               </button>
               <Link to={"/"}>
-                <p className="text-center text-xs text-gray-600 underline sm:text-sm hover:no-underline transition hover:ease-in-out">
+                <p className="text-center text-xs text-gray-900 underline sm:text-sm hover:text-gray-500 transition hover:ease-in-out">
                   Continue Shopping
                 </p>
               </Link>
