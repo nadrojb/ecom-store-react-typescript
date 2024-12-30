@@ -35,7 +35,7 @@ function Home({}) {
 
   return (
     <>
-      <section className="py-5 border-b shadow-md w-full">
+      <section className="py-5 border-b shadow-md w-full fixed bg-white top-0">
         <div className="flex justify justify-between px-8">
           <h1 className="text-xl font-medium">LeShop</h1>
           <div className="flex items-center">

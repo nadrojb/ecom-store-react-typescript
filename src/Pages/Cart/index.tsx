@@ -9,7 +9,7 @@ function Cart() {
 
   return (
     <>
-      <section className="py-5 border-b shadow-md w-full">
+      <section className="py-5 border-b shadow-md w-full fixed z-10 bg-white top-0 ">
         <div className="flex justify-between px-8">
           <Link to={"/"}>
             <svg
@@ -35,13 +35,13 @@ function Cart() {
         </>
       ) : (
         <>
-        <div className="text-center text-xl font-medium mt-5 sm:text-2xl md:text-3xl md:mt-7">
-        <span className="bg-red-500 rounded-full px-1 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
+        <div className="text-center text-xl font-medium mt-24 sm:text-2xl md:text-3xl md:mt-28">
+        <span className="bg-black rounded-full px-2 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
                   {cartQuantity}
                 </span>
           Your Cart
         </div>
-        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-4 ">
+        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
           <div className="lg:w-9/12">
             {cartItems.map((item) => (
               <CartProductCard
