@@ -29,8 +29,6 @@ function Home({}) {
     setIsLoading(false);
   }
 
-  function getProductsByCategory() {}
-
   useEffect(() => {
     if (products.length === 0) {
       getProducts(setProducts);
@@ -76,59 +74,11 @@ function Home({}) {
       </section>
       <div
         id="filetering-modal"
-        className={`mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  py-7 px-20 sm:py-11 sm:px-24 lg:px-20 lg:py-7 rounded-md bg-gray-100 shadow-sm ${modalState}`}
-      >
-        <form className="text-sm mx-auto">
-          <div className="mt-2 flex justify-between">
-            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="electronics">
-              Electronics
-            </label>
-            <input
-              className="sm:w-4 lg:w-3"
-              type="checkbox"
-              name="electronics"
-              id=""
-            />
-          </div>
-          <div className="mt-2 flex justify-between">
-            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="jewelry">
-              Jewelry
-            </label>
-            <input
-              className="sm:w-4 lg:w-3"
-              type="checkbox"
-              name="jewelry"
-              id=""
-            />
-          </div>
-          <div className="mt-2 flex justify-between">
-            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="mens">
-              Men's clothing
-            </label>
-            <input
-              className="sm:w-4 lg:w-3"
-              type="checkbox"
-              name="mens"
-              id=""
-            />
-          </div>
-          <div className="mt-2 flex justify-between">
-            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="womens">
-              Womens clothing
-            </label>
-            <input
-              className="sm:w-4 lg:w-3"
-              type="checkbox"
-              name="womens"
-              id=""
-            />
-          </div>
-          <input
-            type="submit"
-            value="Apply filters"
-            className="bg-slate-900 text-white cursor-pointer rounded-md py-3 w-full text-md mt-4 sm:text-lg lg:text-sm"
-          />
-        </form>
+        className={`mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  py-7 w-48 text-center space-y-2 font-medium sm:py-11 sm:px-24 lg:px-20 lg:py-7 rounded-md bg-gray-100 shadow-sm ${modalState}`}>
+      <h4>Electronics</h4>
+       <h4>Jewelry</h4>
+       <h4>Men's Clothing</h4>
+       <h4>Womens Clothing</h4>
       </div>
 
       {isLoading ? (
@@ -157,19 +107,13 @@ function Home({}) {
         </div>
       ) : (
         <div className="">
-          <p
-            onClick={() => setModalState("")}
-            className="mt-24 ml-auto font-medium text-sm border border-gray-700 text-gray-800 w-20 pt-1 pb-1 text-center mr-6 rounded-md cursor-pointer  transition "
-          >
+          <p onClick={() => setModalState('')} className="mt-24 ml-auto font-medium text-sm border border-gray-700 text-gray-800 w-20 pt-1 pb-1 text-center mr-6 rounded-md cursor-pointer  transition ">
             Filters <span className="text-xs hover:text">&#9660;</span>
           </p>
         </div>
       )}
 
-      <section
-        onClick={() => setModalState("hidden")}
-        className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 "
-      >
+      <section className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
         {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}
