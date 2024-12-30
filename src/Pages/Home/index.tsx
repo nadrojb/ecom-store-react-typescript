@@ -74,58 +74,43 @@ function Home({}) {
           </div>
         </div>
       </section>
-      <section
-        className={`${filtersState} text-slate-800 fixed top-0 left-0 w-full h-screen z-20 bg-white font-sans hidden`}
+
+      <div
+        id="filetering-modal"
+        className="mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  py-7 px-20 sm:py-11 sm:px-24 lg:px-20 lg:py-7 rounded-md bg-gray-100 shadow-sm"
       >
-        <div>
-          <button
-            onClick={() => setFiltersState("hidden")}
-            className={`cursor-pointer float-right mx-6 my-6 `}
-          >
-            <svg
-              className="w-4 "
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-            >
-              <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-            </svg>
-          </button>
-        </div>
-        <div id="filetering-section" className="mx-auto w-1/2 mt-24">
-          <img className="w-40 mx-auto" src="leshop.png" alt="" />
-          <form className="mt-10 text-sm text-center">
-            <div className="mt-2">
-              <label className="mr-4" htmlFor="electronics">
-                Electronics
-              </label>
-              <input type="checkbox" name="electronics" id="" />
-            </div>
-            <div className="mt-2">
-              <label className="mr-4" htmlFor="jewelry">
-                Jewelry
-              </label>
-              <input type="checkbox" name="jewelry" id="" />
-            </div>
-            <div className="mt-2">
-              <label className="mr-4" htmlFor="mens">
-                Men's clothing
-              </label>
-              <input type="checkbox" name="mens" id="" />
-            </div>
-            <div className="mt-2">
-              <label className="mr-4" htmlFor="womens">
-                Womens clothing
-              </label>
-              <input type="checkbox" name="womens" id="" />
-            </div>
-            <input
-              type="submit"
-              value="Apply filters"
-              className="bg-gray-300 cursor-pointer rounded-md px-8 py-3 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in mt-4"
-            />
-          </form>
-        </div>
-      </section>
+        <form className="text-sm mx-auto">
+          <div className="mt-2 flex justify-between">
+            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="electronics">
+              Electronics
+            </label>
+            <input className="sm:w-4 lg:w-3" type="checkbox" name="electronics" id="" />
+          </div>
+          <div className="mt-2 flex justify-between">
+            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="jewelry">
+              Jewelry
+            </label>
+            <input className="sm:w-4 lg:w-3" type="checkbox" name="jewelry" id="" />
+          </div>
+          <div className="mt-2 flex justify-between">
+            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="mens">
+              Men's clothing
+            </label>
+            <input className="sm:w-4 lg:w-3" type="checkbox" name="mens" id="" />
+          </div>
+          <div className="mt-2 flex justify-between">
+            <label className="mr-4 sm:text-lg lg:text-sm" htmlFor="womens">
+              Womens clothing
+            </label>
+            <input className="sm:w-4 lg:w-3" type="checkbox" name="womens" id="" />
+          </div>
+          <input
+            type="submit"
+            value="Apply filters"
+            className="bg-slate-900 text-white cursor-pointer rounded-md py-3 w-full text-md mt-4 sm:text-lg lg:text-sm"
+          />
+        </form>
+      </div>
 
       {isLoading ? (
         <div className="mx-auto text-center mt-24">
