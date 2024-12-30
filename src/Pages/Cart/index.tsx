@@ -41,8 +41,8 @@ function Cart() {
                 </span>
           Your Cart
         </div>
-        <section className="lg:flex space-x-8 px-6 mt-4">
-          <div className="w-9/12">
+        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-4 ">
+          <div className="lg:w-9/12">
             {cartItems.map((item) => (
               <CartProductCard
               key={item.id}
