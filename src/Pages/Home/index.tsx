@@ -26,7 +26,11 @@ function Home({}) {
     const json = await fetch(`https://fakestoreapi.com/products`);
     const productsData: Product = await json.json();
     setProducts(productsData);
-    setIsLoading(false);
+     setIsLoading(false);
+  }
+
+  function getProductsByCategory () {
+
   }
 
   useEffect(() => {
@@ -39,7 +43,7 @@ function Home({}) {
         <div className="flex justify justify-between px-8">
           <h1 className="text-xl font-medium">LeShop</h1>
           <div className="flex items-center ">
-            {cartQuantity === 0 ? (
+                   {cartQuantity === 0 ? (
               <>
                 <Link to={"/cart"}>
                   <svg
@@ -87,7 +91,7 @@ function Home({}) {
             </svg>
           </button>
         </div>
-        <div className="mx-auto w-1/2 mt-24">
+        <div id="filetering-section" className="mx-auto w-1/2 mt-24">
           <img className="w-40 mx-auto" src="leshop.png" alt="" />
           <form className="mt-10 text-sm text-center">
             <div className="mt-2">
@@ -148,7 +152,10 @@ function Home({}) {
           </h3>
         </div>
       ) : null}
-      <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 mt-14">
+      <div className="">
+      <p className="mt-20 ml-auto  font-medium text-sm border w-20 h-7 text-center">Filters <span className="text-xs">&#9660;</span></p>
+        </div>
+      <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
         {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}
