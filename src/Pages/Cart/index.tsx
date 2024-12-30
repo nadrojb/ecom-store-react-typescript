@@ -56,7 +56,7 @@ function Cart() {
               <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
             </div>
             <div>
-              <button className="w-full text-center bg-green-600 rounded-sm text-sm h-10 my-4 sm:text-lg border-2 border-green-600 hover:bg-gray-200 transition hover:ease-in-out hover:text-green-600">
+              <button className="w-full text-center bg-green-600 rounded-md text-sm h-12 my-4 sm:text-lg">
                 CHECKOUT
               </button>
               <Link to={"/"}>

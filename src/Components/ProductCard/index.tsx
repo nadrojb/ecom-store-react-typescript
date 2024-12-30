@@ -28,17 +28,17 @@ function ProductCard({ product }: Product) {
           {quantity === 0 ? (
             <button
               onClick={() => increaseCartQuantity(product.id, product.title, product.price, product.image )}
-              className="bg-gray-300 px-2 py-0.5 rounded-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
+              className="bg-gray-300 w-24 h-8 rounded-md "
             >
               Add to cart
             </button>
           ) : (
             <div className="flex justify-center">
-              <button onClick={quantity === 1 ? () => removeFromCart(product.id) : (() => decreaseCartQuantity(product.id))} className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+              <button onClick={quantity === 1 ? () => removeFromCart(product.id) : (() => decreaseCartQuantity(product.id))} className="bg-gray-300 rounded-md w-6 h-6 text-md border-gray-300 ">
                 -
               </button>
               <h3 className="pl-2 pr-2">{quantity}</h3>
-              <button onClick={() => increaseCartQuantity(product.id, product.title, product.image, product.price)} className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in">
+              <button onClick={() => increaseCartQuantity(product.id, product.title, product.image, product.price)} className="bg-gray-300 rounded-md w-6 h-6 text-md border-gray-300 ">
                 +
               </button>
             </div>

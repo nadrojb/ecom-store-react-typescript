@@ -39,14 +39,14 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
               ? () => removeFromCart(id)
               : () => decreaseCartQuantity(id)
           }
-          className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
+          className="bg-gray-300 rounded-md w-6 h-6 text-md border-gray-300 "
         >
           -
         </button>
         <h3>{quantity}</h3>
         <button
           onClick={() => increaseCartQuantity(id)}
-          className="bg-gray-300 rounded-md px-2 text-md border-gray-300 border-2 hover:bg-white transition duration-100 hover:ease-in"
+          className="bg-gray-300 rounded-md w-6 h-6 text-md border-gray-300 "
         >
           +
         </button>

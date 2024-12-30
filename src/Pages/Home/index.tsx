@@ -153,8 +153,8 @@ function Home({}) {
         </div>
       ) : (
         <div className="">
-          <p className="mt-24 ml-auto font-medium text-sm border w-20 pt-1 pb-1 text-center mr-6 rounded-md ">
-            Filters <span className="text-xs">&#9660;</span>
+          <p className="mt-24 ml-auto font-medium text-sm border border-gray-700 text-gray-800 w-20 pt-1 pb-1 text-center mr-6 rounded-md cursor-pointer  transition ">
+            Filters <span className="text-xs hover:text">&#9660;</span>
           </p>
         </div>
       )}
