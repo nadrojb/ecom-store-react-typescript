@@ -26,15 +26,15 @@ function Home({}) {
     const json = await fetch(`https://fakestoreapi.com/products`);
     const productsData: Product = await json.json();
     setProducts(productsData);
-     setIsLoading(false);
+    setIsLoading(false);
   }
 
-  function getProductsByCategory () {
-
-  }
+  function getProductsByCategory() {}
 
   useEffect(() => {
-    getProducts(setProducts);
+    if (products.length === 0) {
+      getProducts(setProducts);
+    }
   }, []);
 
   return (
@@ -42,8 +42,8 @@ function Home({}) {
       <section className="py-5 border-b shadow-md w-full fixed z-10 bg-white top-0">
         <div className="flex justify justify-between px-8">
           <h1 className="text-xl font-medium">LeShop</h1>
-          <div className="flex items-center ">
-                   {cartQuantity === 0 ? (
+          <div className="flex items-center">
+            {cartQuantity === 0 ? (
               <>
                 <Link to={"/cart"}>
                   <svg
@@ -151,11 +151,15 @@ function Home({}) {
             </span>
           </h3>
         </div>
-      ) : null}
-      <div className="">
-      <p className="mt-20 ml-auto  font-medium text-sm border w-20 h-7 text-center">Filters <span className="text-xs">&#9660;</span></p>
+      ) : (
+        <div className="">
+          <p className="mt-24 ml-auto font-medium text-sm border w-20 pt-1 pb-1 text-center mr-6 rounded-md ">
+            Filters <span className="text-xs">&#9660;</span>
+          </p>
         </div>
-      <section className="grid grid-cols-2 px-6 gap-6 pt-10 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
+      )}
+
+      <section className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 ">
         {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;
         })}
