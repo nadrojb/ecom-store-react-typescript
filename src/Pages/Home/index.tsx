@@ -77,6 +77,7 @@ function Home({}) {
         id="filetering-modal"
         className={`mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  py-7 w-48 text-center space-y-2 font-medium sm:py-11 sm:px-24 lg:px-20 lg:py-7 rounded-md bg-gray-100 shadow-sm ${modalState}`}
       >
+        <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('')} >All products</button>
         <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/electronics')} >Electronics</button>
         <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/jewelery')}>Jewelry</button>
         <button className="hover:underline active:underline cursor-pointer" onClick={() => setCategory('/category/men\'s clothing')}>Men's Clothing</button>
