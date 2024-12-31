@@ -1,4 +1,4 @@
-import CartProductCard from "../../Components/CartProductCard";
+import CheckoutProductCard from "../../Components/CheckoutProductCard";
 import { useCart } from "../../context/CartContext";
 import FormatPrice from "../../Utilities/FormatPrice";
 
@@ -162,7 +162,7 @@ function Checkout() {
         <h2 className="text-xl font-medium">Order Summary</h2>
         <div className="lg:w-9/12">
             {cartItems.map((item) => (
-              <CartProductCard
+              <CheckoutProductCard
               key={item.id}
               id={item.id}
               quantity={item.quantity}
