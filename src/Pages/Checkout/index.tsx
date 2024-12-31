@@ -88,54 +88,67 @@ function Checkout() {
                 Postcode
               </label>
             </div>
-            <div>
-            <h2 className="text-xl font-medium" htmlFor="">
-                Shipping Method
-              </h2>
-              <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer  w-full">
-                <h4 className="text-sm">
-                    Next Day 
-                </h4>
-                <h4 className="font-semibold">
-                    £4.99
-                </h4>
-              </button>
-              <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full">
-                <h4 className="text-sm">
-                    2-3 days 
-                </h4>
-                <h4 className="font-semibold">
-                    £2.49
-                </h4>
-              </button>
-              <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full">
-                <h4 className="text-sm">
-                    5-7 days 
-                </h4>
-                <h4 className="font-semibold">
-                    £1.99
-                </h4>
-              </button>
-            </div>
-            <div>
-
-            <div className="mt-5 bg-gray-100 w-full">
-              <h2 className="text-xl font-medium" htmlFor="">
-                Payment
-              </h2>
-              <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2 mt-3"
-                type="text"
-                />
-              <label
-                className="relative -top-12 left-2 text-sm text-gray-500"
-                htmlFor=""
-                >
-                Email
-              </label>
-            </div>
-                  </div>
           </form>
+          <div className="w-10/12 mx-auto">
+            <h2 className="text-xl font-medium " htmlFor="">
+              Shipping Method
+            </h2>
+            <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer  w-full">
+              <h4 className="text-sm">Next Day</h4>
+              <h4 className="font-semibold">£4.99</h4>
+            </button>
+            <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full">
+              <h4 className="text-sm">2-3 days</h4>
+              <h4 className="font-semibold">£2.49</h4>
+            </button>
+            <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full">
+              <h4 className="text-sm">5-7 days</h4>
+              <h4 className="font-semibold">£1.99</h4>
+            </button>
+          </div>
+          <div>
+            <div className="mt-5 bg-gray-100 w-11/12 mx-auto rounded-md">
+              <div className="w-11/12 mx-auto py-4">
+                <h2 className="text-xl font-medium mb-3" htmlFor="">
+                  Payment
+                </h2>
+                <label className="hidden" htmlFor="">
+                  Card number
+                </label>
+                <input
+                  placeholder="Card number"
+                  type="text"
+                  className="w-full py-3"
+                />
+                <div>
+                  <label className="hidden" htmlFor="">
+                    Expiration date
+                  </label>
+                  <input
+                    placeholder="Expiration date (MM / YY)"
+                    type="text" 
+                    className="w-full py-3"
+                  />
+                  <label className="hidden" htmlFor="">
+                    Security Code
+                  </label>
+                  <input
+                    placeholder="Security code"
+                    type="number"
+                    className="w-full py-3"
+                  />
+                </div>
+                <label className="hidden" htmlFor="">
+                  Name on card
+                </label>
+                <input
+                  placeholder="Name on card"
+                  type="text"
+                  className="w-full py-3"
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className=""></div>
       </section>
