@@ -3,12 +3,17 @@ import { useCart } from "../../context/CartContext";
 import { useState } from "react";
 import FormatPrice from "../../Utilities/FormatPrice";
 
-
 function Checkout() {
   const { cartItems, subTotal, cartQuantity } = useCart();
-  const [shipping, setShipping] = useState(0);
+  const [shippingPrice, setShippingPrice] = useState(0);
+  const [shippingOption, setShippingOption] = useState("");
 
-const totalPrice = subTotal + shipping;
+  const totalPrice = subTotal + shippingPrice;
+
+  const handleShippingOption = (price: number, option: string): void => {
+    setShippingOption(option);
+    setShippingPrice(price);
+  };
 
   return (
     <>
@@ -23,7 +28,7 @@ const totalPrice = subTotal + shipping;
             <div>
               <h2 className="text-xl font-medium">Contact</h2>
               <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2 mt-3 rounded:md"
+                className="w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm"
                 type="text"
               />
               <label
@@ -37,7 +42,7 @@ const totalPrice = subTotal + shipping;
               <h2 className="text-xl font-medium">Delivery</h2>
 
               <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2 mt-3 rounded:md"
+                className="w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm"
                 type="text"
               />
               <label
@@ -49,7 +54,7 @@ const totalPrice = subTotal + shipping;
             </div>
             <div>
               <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2 rounded:md "
+                className="w-full border border-gray-300  pt-5 pb-1 px-2 rounded-sm "
                 type="text"
               />
               <label
@@ -61,7 +66,7 @@ const totalPrice = subTotal + shipping;
             </div>
             <div>
               <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2 rounded:md "
+                className="w-full border border-gray-300  pt-5 pb-1 px-2 rounded-sm "
                 type="text"
               />
               <label
@@ -73,7 +78,7 @@ const totalPrice = subTotal + shipping;
             </div>
             <div>
               <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2  rounded:md"
+                className="w-full border border-gray-300  pt-5 pb-1 px-2  rounded-sm"
                 type="text"
               />
               <label
@@ -85,7 +90,7 @@ const totalPrice = subTotal + shipping;
             </div>
             <div>
               <input
-                className="w-full border border-gray-300 rounded-sm pt-5 pb-1 px-2 rounded:md "
+                className="w-full border border-gray-300  pt-5 pb-1 px-2 rounded-sm "
                 type="text"
               />
               <label
@@ -97,44 +102,50 @@ const totalPrice = subTotal + shipping;
             </div>
           </form>
           <div className="w-10/12 mx-auto">
-            <h2 className="text-xl font-medium " htmlFor="">
-              Shipping Method
-            </h2>
+            <h2 className="text-xl font-medium">Shipping Method</h2>
             <button
-              onClick={() => setShipping(4.99)}
-              className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer  w-full rounded:md"
+              onClick={() => handleShippingOption(4.99, "option1")}
+              className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
+                shippingOption === "option1"
+                  ? "border-green-500 bg-green-50"
+                  : "border-gray-300"
+              }`}
             >
               <h4 className="text-sm">Next Day</h4>
               <h4 className="font-semibold">£4.99</h4>
             </button>
             <button
-              onClick={() => setShipping(2.49)}
-              className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full rounded:md"
+              onClick={() => handleShippingOption(2.49, "option2")}
+              className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
+                shippingOption === "option2"
+                  ? "border-green-500 bg-green-50"
+                  : "border-gray-300"
+              }`}
             >
               <h4 className="text-sm">2-3 days</h4>
               <h4 className="font-semibold">£2.49</h4>
             </button>
             <button
-              onClick={() => setShipping(1.99)}
-              className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full rounded-md"
+              onClick={() => handleShippingOption(1.99, "option3")}
+              className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
+                shippingOption === "option3"
+                  ? "border-green-500 bg-green-50"
+                  : "border-gray-300"
+              }`}
             >
               <h4 className="text-sm">5-7 days</h4>
               <h4 className="font-semibold">£1.99</h4>
             </button>
           </div>
           <div>
-            <div className="mt-5 bg-gray-100 w-11/12 mx-auto rounded-md">
+            <div className="mt-5 bg-gray-100 w-11/12 mx-auto rounded-sm">
               <div className="w-11/12 mx-auto py-5">
-                <h2 className="text-xl font-medium mb-3" htmlFor="">
-                  Payment
-                </h2>
-                <label className="hidden" htmlFor="">
-                  Card number
-                </label>
+                <h2 className="text-xl font-medium mb-3">Payment</h2>
+                <label className="hidden">Card number</label>
                 <input
                   placeholder="Card number"
                   type="text"
-                  className="w-full py-3 border border-gray-300 rounded:md px-2"
+                  className="w-full py-3 border border-gray-300 rounded-sm px-2"
                 />
                 <div>
                   <label className="hidden" htmlFor="">
@@ -143,7 +154,7 @@ const totalPrice = subTotal + shipping;
                   <input
                     placeholder="Expiration date (MM / YY)"
                     type="text"
-                    className="w-full py-3 mt-3 border border-gray-300 rounded:md px-2"
+                    className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
                   />
                   <label className="hidden" htmlFor="">
                     Security Code
@@ -151,7 +162,7 @@ const totalPrice = subTotal + shipping;
                   <input
                     placeholder="Security code"
                     type="number"
-                    className="w-full py-3 mt-3 border border-gray-300 rounded:md px-2"
+                    className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
                   />
                 </div>
                 <label className="hidden" htmlFor="">
@@ -160,47 +171,47 @@ const totalPrice = subTotal + shipping;
                 <input
                   placeholder="Name on card"
                   type="text"
-                  className="w-full py-3 mt-3 border border-gray-300 rounded:md px-2"
+                  className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
                 />
               </div>
             </div>
           </div>
         </div>
-      <section className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0 overflow-scroll">
-        <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
-        <div className="lg:w-9/12">
-          {cartItems.map((item) => (
-            <CheckoutProductCard
-            key={item.id}
-            id={item.id}
-            quantity={item.quantity}
-            title={item.title}
-            image={item.image}
-            price={item.price}
+        <section className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0 overflow-scroll">
+          <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
+          <div className="lg:w-9/12">
+            {cartItems.map((item) => (
+              <CheckoutProductCard
+                key={item.id}
+                id={item.id}
+                quantity={item.quantity}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between mt-3">
+            <h4>Subtotal</h4>
+            <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
+          </div>
+          <div className="flex justify-between mt-3">
+            <h4>Shipping</h4>
+            <h4 className="font-semibold">£{shippingPrice}</h4>
+          </div>
+          <div className="flex justify-between mt-3">
+            <h2 className="text-xl font-medium">Total</h2>
+            <h2 className="text-xl font-medium">£{FormatPrice(totalPrice)}</h2>
+          </div>
+          <div>
+            <input
+              type="submit"
+              value={"Pay Now"}
+              className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-sm h-12 my-4 "
             />
-          ))}
-        </div>
-        <div className="flex justify-between mt-3">
-          <h4>Subtotal</h4>
-          <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
-        </div>
-        <div className="flex justify-between mt-3">
-          <h4>Shipping</h4>
-          <h4 className="font-semibold">£{shipping}</h4>
-        </div>
-        <div className="flex justify-between mt-3">
-          <h2 className="text-xl font-medium">Total</h2>
-          <h2 className="text-xl font-medium">£{FormatPrice(totalPrice)}</h2>
-        </div>
-        <div>
-          <input
-            type="submit"
-            value={"Pay Now"}
-            className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-md h-12 my-4 "
-            />
-        </div>
+          </div>
+        </section>
       </section>
-            </section>
     </>
   );
 }

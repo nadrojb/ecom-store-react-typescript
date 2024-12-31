@@ -32,7 +32,7 @@ function Cart() {
       ) : (
         <>
         <div className="text-center text-xl font-medium mt-24 sm:text-2xl md:text-3xl md:mt-28">
-        <span className="bg-black rounded-full px-2 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
+        <span className="bg-black rounded-full py-1 px-2 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
                   {cartQuantity}
                 </span>
           Your Cart

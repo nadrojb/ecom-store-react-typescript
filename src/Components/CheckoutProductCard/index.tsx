@@ -24,7 +24,7 @@ function CheckoutProductCard({ id, quantity }: CartProductCardProps) {
 
   return (
     <section className="flex items-center justify-between border-b py-5 px-4 sm:w-2/3 mx-auto lg:w-full">
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <img src={image} alt="Product" className="w-20 object-cover" />
         <div className="pl-4 sm:pl-6 w-8/12">
           <h3 className="text-xs mb-1">{title}</h3>
