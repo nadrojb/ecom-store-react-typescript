@@ -12,13 +12,13 @@ const totalPrice = subTotal + shipping;
 
   return (
     <>
-      <div className="py-4 border-b border-gray-300">
+      <div className="py-4 border-b border-gray-300 fixed top-0 z-10 w-full bg-white">
         <h1 className="text-2xl text-center spacing font-medium tracking-tighter">
           LeShop
         </h1>
       </div>
-      <section className="w-full">
-        <div className="pt-6">
+      <section className="w-full lg:flex">
+        <div className="pt-6 lg:w-7/12">
           <form action="" className="w-10/12 mx-auto">
             <div>
               <h2 className="text-xl font-medium">Contact</h2>
@@ -166,18 +166,17 @@ const totalPrice = subTotal + shipping;
             </div>
           </div>
         </div>
-      </section>
-      <section className="mt-5 mb-20 w-10/12 mx-auto">
-        <h2 className="text-xl font-medium">Order Summary</h2>
+      <section className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0">
+        <h2 className="text-xl font-medium lg:pt-20">Order Summary</h2>
         <div className="lg:w-9/12">
           {cartItems.map((item) => (
             <CheckoutProductCard
-              key={item.id}
-              id={item.id}
-              quantity={item.quantity}
-              title={item.title}
-              image={item.image}
-              price={item.price}
+            key={item.id}
+            id={item.id}
+            quantity={item.quantity}
+            title={item.title}
+            image={item.image}
+            price={item.price}
             />
           ))}
         </div>
@@ -198,9 +197,10 @@ const totalPrice = subTotal + shipping;
             type="submit"
             value={"Pay Now"}
             className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-md h-12 my-4 "
-          />
+            />
         </div>
       </section>
+            </section>
     </>
   );
 }
