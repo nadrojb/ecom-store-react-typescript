@@ -3,7 +3,6 @@ import CartProductCard from "../../Components/CartProductCard";
 import { useCart } from "../../context/CartContext";
 import FormatPrice from "../../Utilities/FormatPrice";
 
-
 function Cart() {
   const { cartItems, subTotal, cartQuantity } = useCart();
 
@@ -25,50 +24,49 @@ function Cart() {
       </section>
       {cartQuantity === 0 ? (
         <>
-            <div className="mx-auto text-center mt-24">
+          <div className="mx-auto text-center mt-24">
             <h2 className="text-2xl">Your Cart is Empty.</h2>
           </div>
         </>
       ) : (
         <>
-        <div className="text-center text-xl font-medium mt-24 sm:text-2xl md:text-3xl md:mt-28">
-        <span className="bg-black rounded-full px-2 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
-                  {cartQuantity}
-                </span>
-          Your Cart
-        </div>
-        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
-          <div className="lg:w-9/12">
-            {cartItems.map((item) => (
-              <CartProductCard
-              key={item.id}
-              id={item.id}
-              quantity={item.quantity}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              />
-            ))}
+          <div className="text-center text-xl font-medium mt-24 sm:text-2xl md:text-3xl md:mt-28">
+            <span className="bg-black rounded-full px-2 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
+              {cartQuantity}
+            </span>
+            Your Cart
           </div>
-          <div className="bg-gray-200  px-4 py-4 mx-2 mb-4 rounded-md sm:w-2/3 sm:mx-auto lg:w-3/12 lg:h-fit">
-            <div className="flex justify-between text-sm sm:text-lg">
-              <h4 className="text-gray-900">SUBTOTAL</h4>
-              <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
+          <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
+            <div className="lg:w-9/12">
+              {cartItems.map((item) => (
+                <CartProductCard
+                  key={item.id}
+                  id={item.id}
+                  quantity={item.quantity}
+                  title={item.title}
+                  image={item.image}
+                  price={item.price}
+                />
+              ))}
             </div>
-            <div>
-              <Link to={"/checkout"}>
-              <button className="w-full text-center text-gray-900 bg-green-600 rounded-md text-sm h-12 my-4 sm:text-lg">
-                CHECKOUT
-              </button>
-              </Link>
-              <Link to={"/"}>
-                <p className="text-center text-xs text-gray-900 underline sm:text-sm hover:text-gray-500 transition hover:ease-in-out">
-                  Continue Shopping
-                </p>
-              </Link>
+            <div className="bg-gray-200  px-4 py-4 mx-2 mb-4 rounded-md sm:w-2/3 sm:mx-auto lg:w-3/12 lg:h-fit">
+              <div className="flex justify-between text-sm sm:text-lg">
+                <h4 className="text-gray-900">SUBTOTAL</h4>
+                <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
+              </div>
+              <div>
+                <button className="w-full text-center text-gray-900 bg-green-600 rounded-md text-sm h-12 my-4 sm:text-lg">
+                  CHECKOUT
+                </button>
+
+                <Link to={"/"}>
+                  <p className="text-center text-xs text-gray-900 underline sm:text-sm hover:text-gray-500 transition hover:ease-in-out">
+                    Continue Shopping
+                  </p>
+                </Link>
+              </div>
             </div>
-          </div>
-            </section>
+          </section>
         </>
       )}
     </>
