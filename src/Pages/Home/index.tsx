@@ -38,7 +38,7 @@ function Home({}) {
     <>
       <section className="py-5 border-b shadow-md w-full fixed z-10 bg-white top-0">
         <div className="flex justify justify-between px-8">
-          <h1 className="text-xl font-medium">LeShop</h1>
+          <h1 className="text-xl font-medium tracking-tighter">LeShop</h1>
           <div className="flex items-center">
             {cartQuantity === 0 ? (
               <>
