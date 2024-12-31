@@ -18,7 +18,7 @@ const totalPrice = subTotal + shipping;
         </h1>
       </div>
       <section className="w-full lg:flex">
-        <div className="pt-6 lg:w-7/12">
+        <div className="pt-24 lg:pt-24 lg:w-7/12">
           <form action="" className="w-10/12 mx-auto">
             <div>
               <h2 className="text-xl font-medium">Contact</h2>
@@ -166,8 +166,8 @@ const totalPrice = subTotal + shipping;
             </div>
           </div>
         </div>
-      <section className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0">
-        <h2 className="text-xl font-medium lg:pt-20">Order Summary</h2>
+      <section className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0 overflow-scroll">
+        <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
         <div className="lg:w-9/12">
           {cartItems.map((item) => (
             <CheckoutProductCard
@@ -190,7 +190,7 @@ const totalPrice = subTotal + shipping;
         </div>
         <div className="flex justify-between mt-3">
           <h2 className="text-xl font-medium">Total</h2>
-          <h2 className="text-xl font-medium">{totalPrice}</h2>
+          <h2 className="text-xl font-medium">£{FormatPrice(totalPrice)}</h2>
         </div>
         <div>
           <input
