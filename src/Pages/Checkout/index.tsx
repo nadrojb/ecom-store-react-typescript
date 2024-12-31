@@ -3,9 +3,12 @@ import { useCart } from "../../context/CartContext";
 import { useState } from "react";
 import FormatPrice from "../../Utilities/FormatPrice";
 
+
 function Checkout() {
   const { cartItems, subTotal, cartQuantity } = useCart();
   const [shipping, setShipping] = useState(0);
+
+const totalPrice = subTotal + shipping;
 
   return (
     <>
@@ -97,15 +100,24 @@ function Checkout() {
             <h2 className="text-xl font-medium " htmlFor="">
               Shipping Method
             </h2>
-            <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer  w-full rounded:md">
+            <button
+              onClick={() => setShipping(4.99)}
+              className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer  w-full rounded:md"
+            >
               <h4 className="text-sm">Next Day</h4>
               <h4 className="font-semibold">£4.99</h4>
             </button>
-            <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full rounded:md">
+            <button
+              onClick={() => setShipping(2.49)}
+              className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full rounded:md"
+            >
               <h4 className="text-sm">2-3 days</h4>
               <h4 className="font-semibold">£2.49</h4>
             </button>
-            <button className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full rounded-md">
+            <button
+              onClick={() => setShipping(1.99)}
+              className="flex justify-between items-center border border-gray-300 px-2 py-3 mt-3 cursor-pointer w-full rounded-md"
+            >
               <h4 className="text-sm">5-7 days</h4>
               <h4 className="font-semibold">£1.99</h4>
             </button>
@@ -179,10 +191,14 @@ function Checkout() {
         </div>
         <div className="flex justify-between mt-3">
           <h2 className="text-xl font-medium">Total</h2>
-          <h2 className="text-xl font-medium">£68.99</h2>
+          <h2 className="text-xl font-medium">{totalPrice}</h2>
         </div>
         <div>
-          <input type="submit" value={"Pay Now"} className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-md h-12 my-4 " />
+          <input
+            type="submit"
+            value={"Pay Now"}
+            className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-md h-12 my-4 "
+          />
         </div>
       </section>
     </>
