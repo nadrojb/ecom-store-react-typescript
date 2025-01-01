@@ -10,13 +10,7 @@ type CartProductCardProps = {
 };
 
 function CheckoutProductCard({ id, quantity }: CartProductCardProps) {
-  const {
-    removeFromCart,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    cartItems,
-    subTotal
-  } = useCart();
+  const { cartItems } = useCart();
 
   const newProduct = cartItems.find((item) => item.id === id);
 
@@ -33,7 +27,7 @@ function CheckoutProductCard({ id, quantity }: CartProductCardProps) {
           </p>
         </div>
       </div>
-     </section>
+    </section>
   );
 }
 
