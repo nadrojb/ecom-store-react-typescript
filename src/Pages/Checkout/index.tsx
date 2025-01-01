@@ -63,7 +63,7 @@ function Checkout() {
             <div>
               <h2 className="text-xl font-medium">Delivery</h2>
 
-              <input
+              <input required
                 className="w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm"
                 type="text"
               />
@@ -71,11 +71,11 @@ function Checkout() {
                 className="relative -top-12 left-2 text-sm text-gray-500"
                 htmlFor=""
               >
-                First name
+                First name *
               </label>
             </div>
             <div>
-              <input
+              <input required
                 className="w-full border border-gray-300  pt-5 pb-1 px-2 rounded-sm "
                 type="text"
               />
@@ -83,11 +83,11 @@ function Checkout() {
                 className="relative -top-12 left-2 text-sm text-gray-500"
                 htmlFor=""
               >
-                Last name
+                Last name *
               </label>
             </div>
             <div>
-              <input
+              <input required
                 className="w-full border border-gray-300  pt-5 pb-1 px-2 rounded-sm "
                 type="text"
               />
@@ -95,11 +95,11 @@ function Checkout() {
                 className="relative -top-12 left-2 text-sm text-gray-500"
                 htmlFor=""
               >
-                Address
+                Address *
               </label>
             </div>
             <div>
-              <input
+              <input required
                 className="w-full border border-gray-300  pt-5 pb-1 px-2  rounded-sm"
                 type="text"
               />
@@ -111,7 +111,7 @@ function Checkout() {
               </label>
             </div>
             <div>
-              <input
+              <input required
                 className="w-full border border-gray-300  pt-5 pb-1 px-2 rounded-sm "
                 type="text"
               />
@@ -119,7 +119,7 @@ function Checkout() {
                 className="relative -top-12 left-2 text-sm text-gray-500"
                 htmlFor=""
               >
-                Postcode
+                Postcode *
               </label>
             </div>
           </form>
