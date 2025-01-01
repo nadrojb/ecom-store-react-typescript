@@ -48,19 +48,6 @@ function Cart() {
               price={item.price}
               />
             ))}
-          </div>
-          <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
-            <div className="lg:w-9/12">
-              {cartItems.map((item) => (
-                <CartProductCard
-                  key={item.id}
-                  id={item.id}
-                  quantity={item.quantity}
-                  title={item.title}
-                  image={item.image}
-                  price={item.price}
-                />
-              ))}
             </div>
             <div className="bg-gray-200  px-4 py-4 mx-2 mb-4 rounded-md sm:w-2/3 sm:mx-auto lg:w-3/12 lg:h-fit">
               <div className="flex justify-between text-sm sm:text-lg">
@@ -68,9 +55,12 @@ function Cart() {
                 <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
               </div>
               <div>
+                <Link to={"/checkout"}>
+                
                 <button className="w-full text-center text-gray-900 bg-green-600 rounded-md text-sm h-12 my-4 sm:text-lg">
                   CHECKOUT
                 </button>
+                </Link>
 
                 <Link to={"/"}>
                   <p className="text-center text-xs text-gray-900 underline sm:text-sm hover:text-gray-500 transition hover:ease-in-out">
