@@ -9,6 +9,7 @@ function Checkout() {
   const [shippingOption, setShippingOption] = useState("");
   const [email, setEmail] = useState("");
   const [invalidEmail, setInvalidEmail] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -18,6 +19,10 @@ function Checkout() {
   };
 
   function handleEmailChange(e: { target: { value: any } }) {
+    const value = e.target.value;
+    validateEmail(value);
+  }
+  function handleCardNumberChange(e: { target: { value: any } }) {
     const value = e.target.value;
     validateEmail(value);
   }
