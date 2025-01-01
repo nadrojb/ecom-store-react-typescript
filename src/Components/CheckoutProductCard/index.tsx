@@ -14,7 +14,7 @@ function CheckoutProductCard({ id, quantity }: CartProductCardProps) {
 
   const newProduct = cartItems.find((item) => item.id === id);
 
-  const { price, image, title } = newProduct;
+  const { price, image, title } = newProduct ?? {};
 
   return (
     <section className="flex items-center justify-between border-b py-5 px-4 sm:w-2/3 mx-auto lg:w-full">

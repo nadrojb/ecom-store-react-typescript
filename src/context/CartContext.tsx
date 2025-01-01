@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 type CartContext = {
   getItemQuantity: (id: number) => number;
-  increaseCartQuantity: (id: number) => void;
+  increaseCartQuantity: (id: number, title: string, price: number, image: string) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
   cartQuantity: number;
