@@ -7,6 +7,7 @@ function Checkout() {
   const { cartItems, subTotal, cartQuantity } = useCart();
   const [shippingPrice, setShippingPrice] = useState(0);
   const [shippingOption, setShippingOption] = useState("");
+  const [email, setEmail] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -14,6 +15,13 @@ function Checkout() {
     setShippingOption(option);
     setShippingPrice(price);
   };
+
+  function handleEmailChange(e) {
+    const value = e.target.value;
+    setEmail(value);
+  }
+  console.log(email);
+
 
   return (
     <>
@@ -28,6 +36,7 @@ function Checkout() {
             <div>
               <h2 className="text-xl font-medium">Contact</h2>
               <input
+                onChange={handleEmailChange}
                 className="w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm"
                 type="text"
               />
