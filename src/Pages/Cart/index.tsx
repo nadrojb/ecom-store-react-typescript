@@ -30,11 +30,24 @@ function Cart() {
         </>
       ) : (
         <>
-          <div className="text-center text-xl font-medium mt-24 sm:text-2xl md:text-3xl md:mt-28">
-            <span className="bg-black rounded-full px-2 py-1 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
-              {cartQuantity}
-            </span>
-            Your Cart
+        <div className="text-center text-xl font-medium mt-24 sm:text-2xl md:text-3xl md:mt-28">
+        <span className="bg-black rounded-full py-1 px-2 text-white text-sm relative left-28 -top-3 sm:left-32 sm:-top-5 md:left-40 md:-top-7  ">
+                  {cartQuantity}
+                </span>
+          Your Cart
+        </div>
+        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
+          <div className="lg:w-9/12">
+            {cartItems.map((item) => (
+              <CartProductCard
+              key={item.id}
+              id={item.id}
+              quantity={item.quantity}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              />
+            ))}
           </div>
           <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
             <div className="lg:w-9/12">
