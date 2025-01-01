@@ -8,6 +8,7 @@ function Checkout() {
   const [shippingPrice, setShippingPrice] = useState(0);
   const [shippingOption, setShippingOption] = useState("");
   const [email, setEmail] = useState("");
+  const [invalidEmail, setInvalidEmail] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -16,12 +17,23 @@ function Checkout() {
     setShippingPrice(price);
   };
 
-  function handleEmailChange(e) {
+  function handleEmailChange(e: { target: { value: any } }) {
     const value = e.target.value;
-    setEmail(value);
+    validateEmail(value);
   }
-  console.log(email);
 
+  function validateEmail(email: string) {
+    if (
+      email && 
+      !email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+    ) {
+      setInvalidEmail("border-red-500 bg-red-50");
+    } else {
+      setInvalidEmail("");
+    }
+  }
 
   return (
     <>
@@ -37,7 +49,8 @@ function Checkout() {
               <h2 className="text-xl font-medium">Contact</h2>
               <input
                 onChange={handleEmailChange}
-                className="w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm"
+                required
+                className={`w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm ${invalidEmail}`}
                 type="text"
               />
               <label
