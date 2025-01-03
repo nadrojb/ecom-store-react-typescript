@@ -1,8 +1,9 @@
 import FormatPrice from "../../Utilities/FormatPrice";
-import { Product } from "../../Pages/Home";
-import { useCart } from "../../context/CartContext";
 
-function ProductCard({ product }: Product) {
+import { useCart } from "../../context/CartContext";
+import { ProductCardProps } from "../../Pages/Home";
+
+function ProductCard({ product }: ProductCardProps) {
   const {
     getItemQuantity,
     increaseCartQuantity,

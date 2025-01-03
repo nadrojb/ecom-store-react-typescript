@@ -7,7 +7,6 @@ function Checkout() {
   const { cartItems, subTotal } = useCart();
   const [shippingPrice, setShippingPrice] = useState(0);
   const [shippingOption, setShippingOption] = useState("");
-  const [email, setEmail] = useState("");
   const [invalidEmail, setInvalidEmail] = useState("");
 
 

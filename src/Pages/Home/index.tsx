@@ -1,7 +1,13 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "../../Components/ProductCard";
 import { Link } from "react-router";
 import { useCart } from "../../context/CartContext";
+
+
+export type ProductCardProps = {
+  product: Product;  
+};
+
 
 export type Product = {
   id: number;
@@ -22,13 +28,14 @@ function Home({}) {
   const [category, setCategory] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  async function getProducts(setProducts) {
+  async function getProducts(setProducts: (products: Product[]) => void) {
     setIsLoading(true);
-    const json = await fetch(`https://fakestoreapi.com/products${category}`);
-    const productsData: Product = await json.json();
+    const response = await fetch(`https://fakestoreapi.com/products${category}`);
+    const productsData: Product[] = await response.json(); 
     setProducts(productsData);
     setIsLoading(false);
   }
+  
 
   useEffect(() => {
     getProducts(setProducts);
