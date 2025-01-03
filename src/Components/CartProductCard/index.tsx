@@ -19,6 +19,10 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
 
   const newProduct = cartItems.find((item) => item.id === id);
 
+  if (!newProduct) {
+    return null;
+  } 
+  
   const { price, image, title } = newProduct;
 
   return (
