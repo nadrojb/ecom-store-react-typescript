@@ -51,7 +51,7 @@ function CartProductCard({ id, quantity }: CartProductCardProps) {
         </button>
         <h3>{quantity}</h3>
         <button
-          onClick={() => increaseCartQuantity(id)}
+          onClick={() => increaseCartQuantity(id, title, price, image)}
           className="bg-slate-900 rounded-md w-6 h-6 text-md  text-white "
           >
           +
