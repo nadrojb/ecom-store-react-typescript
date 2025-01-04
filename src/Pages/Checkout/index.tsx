@@ -250,6 +250,33 @@ function Checkout() {
               className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-sm h-12 my-4 "
             />
           </form>
+          <div className="w-10/12 mx-auto lg:">
+          <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
+          <div className="">
+            {cartItems.map((item) => (
+              <CheckoutProductCard
+                key={item.id}
+                id={item.id}
+                quantity={item.quantity}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between mt-3">
+            <h4>Subtotal</h4>
+            <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
+          </div>
+          <div className="flex justify-between mt-3">
+            <h4>Shipping</h4>
+            <h4 className="font-semibold">£{shippingPrice}</h4>
+          </div>
+          <div className="flex justify-between mt-3">
+            <h2 className="text-xl font-medium">Total</h2>
+            <h2 className="text-xl font-medium">£{FormatPrice(totalPrice)}</h2>
+          </div>
+          </div>
         </div>
         <section className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0 overflow-scroll">
           <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
@@ -277,7 +304,6 @@ function Checkout() {
             <h2 className="text-xl font-medium">Total</h2>
             <h2 className="text-xl font-medium">£{FormatPrice(totalPrice)}</h2>
           </div>
-          <div></div>
         </section>
       </section>
     </>
