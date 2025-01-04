@@ -139,7 +139,13 @@ function Checkout() {
             </div>
             <div className="mx-auto">
               <h2 className="text-xl font-medium">Shipping Method</h2>
-              <label className="flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm">
+              <label
+                className={`${
+                  shippingOption === "option1"
+                    ? "flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm bg-green-50 border-green-500"
+                    : "flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm"
+                }`}
+              >
                 <input
                   type="radio"
                   id="option1"
@@ -153,9 +159,13 @@ function Checkout() {
                 </div>
                 <h4 className="font-semibold">£4.99</h4>
               </label>
-
-              {/* Shipping Option 2 */}
-              <label className="flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm">
+              <label
+                className={`${
+                  shippingOption === "option2"
+                    ? "flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm bg-green-50 border-green-500"
+                    : "flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm"
+                }`}
+              >
                 <input
                   type="radio"
                   id="option2"
@@ -169,9 +179,13 @@ function Checkout() {
                 </div>
                 <h4 className="font-semibold">£2.49</h4>
               </label>
-
-              {/* Shipping Option 3 */}
-              <label className="flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm">
+              <label
+                className={`${
+                  shippingOption === "option3"
+                    ? "flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm bg-green-50 border-green-500"
+                    : "flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm"
+                }`}
+              >
                 <input
                   type="radio"
                   id="option3"
@@ -185,7 +199,6 @@ function Checkout() {
                 </div>
                 <h4 className="font-semibold">£1.99</h4>
               </label>
-            
             </div>
             <div>
               <div className="mt-5 bg-gray-100 mx-auto rounded-sm">
