@@ -147,7 +147,13 @@ function Checkout() {
                     : "border-gray-300"
                 }`}
               >
+                  <div className="flex">
+                  <label htmlFor="option1" className="hidden">
+                    Next Day
+                  </label>
+                  <input type="radio" id="option1" name="delivery-option"  className="mr-2"/>
                 <h4 className="text-sm">Next Day</h4>
+                </div>
                 <h4 className="font-semibold">£4.99</h4>
               </button>
               <button
@@ -158,9 +164,17 @@ function Checkout() {
                     : "border-gray-300"
                 }`}
               >
+                  <div className="flex">
+                  <label htmlFor="option2" className="hidden">
+                    2-3 days
+                  </label>
+                  <input type="radio" id="option2" name="delivery-option" className="mr-2"/>
                 <h4 className="text-sm">2-3 days</h4>
+                </div>
                 <h4 className="font-semibold">£2.49</h4>
               </button>
+            </div>
+            <div>
               <button
                 onClick={() => handleShippingOption(1.99, "option3")}
                 className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
@@ -169,7 +183,13 @@ function Checkout() {
                     : "border-gray-300"
                 }`}
               >
-                <h4 className="text-sm">5-7 days</h4>
+                <div className="flex">
+                  <label htmlFor="option3"  className="hidden">
+                    5-7 days
+                  </label>
+                  <input type="radio" id="option3" name="delivery-option" className="mr-2"/>
+                  <h4 className="text-sm">5-7 days</h4>
+                </div>
                 <h4 className="font-semibold">£1.99</h4>
               </button>
             </div>
@@ -178,7 +198,8 @@ function Checkout() {
                 <div className="w-11/12 mx-auto py-5">
                   <h2 className="text-xl font-medium mb-3">Payment</h2>
                   <label className="hidden">Card number</label>
-                  <input required
+                  <input
+                    required
                     placeholder="Card number"
                     type="text"
                     className="w-full py-3 border border-gray-300 rounded-sm px-2"
@@ -187,7 +208,8 @@ function Checkout() {
                     <label className="hidden" htmlFor="">
                       Expiration date
                     </label>
-                    <input required
+                    <input
+                      required
                       placeholder="Expiration date (MM / YY)"
                       type="text"
                       className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
@@ -195,7 +217,8 @@ function Checkout() {
                     <label className="hidden" htmlFor="">
                       Security Code
                     </label>
-                    <input required
+                    <input
+                      required
                       placeholder="Security code"
                       type="number"
                       className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
@@ -204,7 +227,8 @@ function Checkout() {
                   <label className="hidden" htmlFor="">
                     Name on card
                   </label>
-                  <input required
+                  <input
+                    required
                     placeholder="Name on card"
                     type="text"
                     className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
