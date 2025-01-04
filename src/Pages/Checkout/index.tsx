@@ -137,7 +137,7 @@ function Checkout() {
                 Postcode *
               </label>
             </div>
-            <div className="w-10/12 mx-auto">
+            <div className="mx-auto">
               <h2 className="text-xl font-medium">Shipping Method</h2>
               <button
                 onClick={() => handleShippingOption(4.99, "option1")}
@@ -174,11 +174,11 @@ function Checkout() {
               </button>
             </div>
             <div>
-              <div className="mt-5 bg-gray-100 w-11/12 mx-auto rounded-sm">
+              <div className="mt-5 bg-gray-100 mx-auto rounded-sm">
                 <div className="w-11/12 mx-auto py-5">
                   <h2 className="text-xl font-medium mb-3">Payment</h2>
                   <label className="hidden">Card number</label>
-                  <input
+                  <input required
                     placeholder="Card number"
                     type="text"
                     className="w-full py-3 border border-gray-300 rounded-sm px-2"
@@ -187,7 +187,7 @@ function Checkout() {
                     <label className="hidden" htmlFor="">
                       Expiration date
                     </label>
-                    <input
+                    <input required
                       placeholder="Expiration date (MM / YY)"
                       type="text"
                       className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
@@ -195,7 +195,7 @@ function Checkout() {
                     <label className="hidden" htmlFor="">
                       Security Code
                     </label>
-                    <input
+                    <input required
                       placeholder="Security code"
                       type="number"
                       className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
@@ -204,7 +204,7 @@ function Checkout() {
                   <label className="hidden" htmlFor="">
                     Name on card
                   </label>
-                  <input
+                  <input required
                     placeholder="Name on card"
                     type="text"
                     className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
