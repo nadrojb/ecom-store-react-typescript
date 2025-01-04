@@ -139,59 +139,53 @@ function Checkout() {
             </div>
             <div className="mx-auto">
               <h2 className="text-xl font-medium">Shipping Method</h2>
-              <button
-                onClick={() => handleShippingOption(4.99, "option1")}
-                className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
-                  shippingOption === "option1"
-                    ? "border-green-500 bg-green-50"
-                    : "border-gray-300"
-                }`}
-              >
-                  <div className="flex">
-                  <label htmlFor="option1" className="hidden">
-                    Next Day
-                  </label>
-                  <input type="radio" id="option1" name="delivery-option"  className="mr-2"/>
-                <h4 className="text-sm">Next Day</h4>
+              <label className="flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm">
+                <input
+                  type="radio"
+                  id="option1"
+                  name="delivery-option"
+                  checked={shippingOption === "option1"}
+                  onChange={() => handleShippingOption(4.99, "option1")}
+                  className="mr-2"
+                />
+                <div className="flex">
+                  <h4 className="text-sm">Next Day</h4>
                 </div>
                 <h4 className="font-semibold">£4.99</h4>
-              </button>
-              <button
-                onClick={() => handleShippingOption(2.49, "option2")}
-                className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
-                  shippingOption === "option2"
-                    ? "border-green-500 bg-green-50"
-                    : "border-gray-300"
-                }`}
-              >
-                  <div className="flex">
-                  <label htmlFor="option2" className="hidden">
-                    2-3 days
-                  </label>
-                  <input type="radio" id="option2" name="delivery-option" className="mr-2"/>
-                <h4 className="text-sm">2-3 days</h4>
+              </label>
+
+              {/* Shipping Option 2 */}
+              <label className="flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm">
+                <input
+                  type="radio"
+                  id="option2"
+                  name="delivery-option"
+                  checked={shippingOption === "option2"}
+                  onChange={() => handleShippingOption(2.49, "option2")}
+                  className="mr-2"
+                />
+                <div className="flex">
+                  <h4 className="text-sm">2-3 days</h4>
                 </div>
                 <h4 className="font-semibold">£2.49</h4>
-              </button>
-            </div>
-            <div>
-              <button
-                onClick={() => handleShippingOption(1.99, "option3")}
-                className={`flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm ${
-                  shippingOption === "option3"
-                    ? "border-green-500 bg-green-50"
-                    : "border-gray-300"
-                }`}
-              >
+              </label>
+
+              {/* Shipping Option 3 */}
+              <label className="flex justify-between items-center border px-2 py-3 mt-3 cursor-pointer w-full rounded-sm">
+                <input
+                  type="radio"
+                  id="option3"
+                  name="delivery-option"
+                  checked={shippingOption === "option3"}
+                  onChange={() => handleShippingOption(1.99, "option3")}
+                  className="mr-2"
+                />
                 <div className="flex">
-                  <label htmlFor="option3"  className="hidden">
-                    5-7 days
-                  </label>
-                  <input type="radio" id="option3" name="delivery-option" className="mr-2"/>
                   <h4 className="text-sm">5-7 days</h4>
                 </div>
                 <h4 className="font-semibold">£1.99</h4>
-              </button>
+              </label>
+            
             </div>
             <div>
               <div className="mt-5 bg-gray-100 mx-auto rounded-sm">
