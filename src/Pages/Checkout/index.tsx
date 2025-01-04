@@ -6,7 +6,7 @@ import FormatPrice from "../../Utilities/FormatPrice";
 function Checkout() {
   const { cartItems, subTotal } = useCart();
   const [shippingPrice, setShippingPrice] = useState(0);
-  const [shippingOption, setShippingOption] = useState("");
+  const [shippingOption, setShippingOption] = useState("option1");
   const [invalidEmail, setInvalidEmail] = useState("");
   const [emailVerificationStatus, setEmailVerificationStatus] = useState(false);
 
@@ -147,6 +147,7 @@ function Checkout() {
                 }`}
               >
                 <input
+              
                   type="radio"
                   id="option1"
                   name="delivery-option"
