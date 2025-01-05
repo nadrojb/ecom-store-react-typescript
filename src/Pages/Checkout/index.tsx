@@ -91,7 +91,8 @@ function Checkout() {
     return;
   }
 
-  function Payment() {
+  function handlePaymentSubmit(e) {
+    e.preventDefault()
     if (
       cardNumberStatus &&
       securityCodeStatus &&
@@ -113,7 +114,7 @@ function Checkout() {
       </div>
       <section className="w-full lg:flex">
         <div className="pt-24 lg:pt-24 lg:w-7/12">
-          <form action="" className="w-10/12 mx-auto">
+          <form onSubmit={handlePaymentSubmit} className="w-10/12 mx-auto">
             <div>
               <h2 className="text-xl font-medium">Contact</h2>
               <input
