@@ -11,7 +11,10 @@ function Checkout() {
   const [cardExpiry, setCardExpiry] = useState("");
   const [securityCode, setSecurityCode] = useState("");
   const [cardNumber, setCardNumber] = useState("");
-
+  const [emailStatus, setEmailStatus] = useState(false);
+  const [cardExpiryStatus, setCardExpiryStatus] = useState(false);
+  const [cardNumberStatus, setCardNumberStatus] = useState(false);
+  const [securityCodeStatus, setSecurityCodeStatus] = useState(false);
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -39,22 +42,26 @@ function Checkout() {
   function handleSecurityCodeChange(e) {
     const value = e.target.value;
     console.log(value);
-    validateSecurityCode(value)
+    validateSecurityCode(value);
   }
 
-  function validateSecurityCode (code: string) {
+  function validateSecurityCode(code: string) {
     if (code && !code.match(/^\d{3}$/)) {
       setSecurityCode("error");
+      setSecurityCodeStatus(false);
     } else {
       setSecurityCode("");
+      setSecurityCodeStatus(true);
     }
   }
 
   function validateExpiryDate(expiry: string) {
     if (expiry && !expiry.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) {
       setCardExpiry("error");
+      setCardExpiryStatus(false);
     } else {
       setCardExpiry("");
+      setCardExpiryStatus(true);
     }
   }
 
@@ -66,18 +73,35 @@ function Checkout() {
       )
     ) {
       setEmail("border-red-500 bg-red-50");
+      setEmailStatus(false);
     } else {
       setEmail("border-green-500 bg-green-50");
+      setEmailStatus(true);
     }
   }
 
   function validateCardNumber(cardNumber: string) {
     if (cardNumber && !cardNumber.match(/^\d{4}(\s?\d{4}){3}$/)) {
       setCardNumber("error");
+      setCardNumberStatus(false);
     } else {
       setCardNumber("");
+      setCardNumberStatus(true);
     }
     return;
+  }
+
+  function Payment() {
+    if (
+      cardNumberStatus &&
+      securityCodeStatus &&
+      emailStatus &&
+      cardExpiryStatus
+    ) {
+      console.log("payment success");
+    } else {
+      console.log("error");
+    }
   }
 
   return (
@@ -270,7 +294,7 @@ function Checkout() {
                       Security Code
                     </label>
                     <input
-                    onChange={handleSecurityCodeChange}
+                      onChange={handleSecurityCodeChange}
                       required
                       placeholder="Security code"
                       type="number"
