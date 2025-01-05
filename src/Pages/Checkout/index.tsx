@@ -12,6 +12,7 @@ function Checkout() {
   const [cardNumberStatus, setCardNumberStatus] = useState(false);
   const [cardNumberError, setCardNumberError] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
+  const [SecurityCode, setSecurityCode] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -33,13 +34,24 @@ function Checkout() {
   function handleExpiryChange(e) {
     const value = e.target.value;
     console.log(value);
-
     validateExpiryDate(value);
   }
 
+  function handleSecurityCodeChange(e) {
+    const value = e.target.value;
+    console.log(value);
+  }
+
+  function validateSecurityCode (code: string) {
+    if (code && !code.match(/^\d{3}$/)) {
+      setSecurityCode("error");
+    } else {
+      setSecurityCode("");
+    }
+  }
+
   function validateExpiryDate(expiry: string) {
-    const today = new Date();
-    if (expiry && !expiry.match(/^(0[1-9]|1[0-2])\/\d{2}$/) && expiry > today) {
+    if (expiry && !expiry.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) {
       setCardExpiry("error");
     } else {
       setCardExpiry("");
