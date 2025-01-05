@@ -7,12 +7,11 @@ function Checkout() {
   const { cartItems, subTotal } = useCart();
   const [shippingPrice, setShippingPrice] = useState(0);
   const [shippingOption, setShippingOption] = useState("option1");
-  const [invalidEmail, setInvalidEmail] = useState("");
-  const [emailVerificationStatus, setEmailVerificationStatus] = useState(false);
-  const [cardNumberStatus, setCardNumberStatus] = useState(false);
-  const [cardNumberError, setCardNumberError] = useState("");
+  const [email, setEmail] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
   const [securityCode, setSecurityCode] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -66,21 +65,17 @@ function Checkout() {
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
     ) {
-      setInvalidEmail("border-red-500 bg-red-50");
-      setEmailVerificationStatus(false);
+      setEmail("border-red-500 bg-red-50");
     } else {
-      setInvalidEmail("border-green-500 bg-green-50");
-      setEmailVerificationStatus(true);
+      setEmail("border-green-500 bg-green-50");
     }
   }
 
   function validateCardNumber(cardNumber: string) {
     if (cardNumber && !cardNumber.match(/^\d{4}(\s?\d{4}){3}$/)) {
-      setCardNumberStatus(false);
-      setCardNumberError("error");
+      setCardNumber("error");
     } else {
-      setCardNumberStatus(true);
-      setCardNumberError("");
+      setCardNumber("");
     }
     return;
   }
@@ -100,7 +95,7 @@ function Checkout() {
               <input
                 onChange={handleEmailChange}
                 required
-                className={`w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm ${invalidEmail}`}
+                className={`w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm ${email}`}
                 type="text"
               />
               <label
@@ -251,7 +246,7 @@ function Checkout() {
                     placeholder="Card number"
                     type="text"
                     className={` ${
-                      cardNumberError === "error"
+                      cardNumber === "error"
                         ? "w-full py-3 border border-red-500 bg-red-50 rounded-sm px-2"
                         : "w-full py-3 border border-gray-300 rounded-sm px-2 "
                     }`}
@@ -267,8 +262,8 @@ function Checkout() {
                       type="text"
                       className={` ${
                         cardExpiry === "error"
-                          ? "w-full py-3 border border-red-500 bg-red-50 rounded-sm px-2"
-                          : "w-full py-3 border border-gray-300 rounded-sm px-2 "
+                          ? "w-full py-3 border mt-3 border-red-500 bg-red-50 rounded-sm px-2"
+                          : "w-full py-3 border mt-3 border-gray-300 rounded-sm px-2 "
                       }`}
                     />
                     <label className="hidden" htmlFor="">
@@ -281,8 +276,8 @@ function Checkout() {
                       type="number"
                       className={` ${
                         securityCode === "error"
-                          ? "w-full py-3 border border-red-500 bg-red-50 rounded-sm px-2"
-                          : "w-full py-3 border border-gray-300 rounded-sm px-2 "
+                          ? "w-full py-3 border mt-3 border-red-500 bg-red-50 rounded-sm px-2"
+                          : "w-full py-3 border mt-3 border-gray-300 rounded-sm px-2 "
                       }`}
                     />
                   </div>
