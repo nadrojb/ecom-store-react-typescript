@@ -11,6 +11,7 @@ function Checkout() {
   const [emailVerificationStatus, setEmailVerificationStatus] = useState(false);
   const [cardNumberStatus, setCardNumberStatus] = useState(false);
   const [cardNumberError, setCardNumberError] = useState("");
+  const [cardExpiryError, setCardExpiryError] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -29,6 +30,19 @@ function Checkout() {
     validateCardNumber(value);
   }
 
+  function handleExpiryChange(e) {
+    const value = e.target.value;
+    validateExpiryDate(value)
+  }
+
+  function validateExpiryDate (expiry: string) {
+    if ( expiry && !cardExpiryError.match (/^(0[1-9]|1[0-2])\/\d{2}$/)) {
+        setCardExpiryError("error");
+  } else {
+    setCardExpiryError("")
+  }
+}
+
   function validateEmail(email: string) {
     if (
       email &&
@@ -45,12 +59,7 @@ function Checkout() {
   }
 
   function validateCardNumber(cardNumber: string) {
-    if (
-      cardNumber &&
-      !cardNumber.match(
-        /^\d{4}(\s?\d{4}){3}$/
-      )
-    ) {
+    if (cardNumber && !cardNumber.match(/^\d{4}(\s?\d{4}){3}$/)) {
       setCardNumberStatus(false);
       setCardNumberError("error");
     } else {
@@ -236,11 +245,15 @@ function Checkout() {
                       Expiration date
                     </label>
                     <input
+                    onChange={handleExpiryChange}
                       required
                       placeholder="Expiration date (MM / YY)"
                       type="text"
-                      className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
-                    />
+                      className={` ${
+                        cardExpiryError === "error"
+                          ? "w-full py-3 border border-red-500 bg-red-50 rounded-sm px-2"
+                          : "w-full py-3 border border-gray-300 rounded-sm px-2 "
+                      }`} />
                     <label className="hidden" htmlFor="">
                       Security Code
                     </label>
