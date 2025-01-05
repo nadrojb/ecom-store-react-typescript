@@ -12,7 +12,7 @@ function Checkout() {
   const [cardNumberStatus, setCardNumberStatus] = useState(false);
   const [cardNumberError, setCardNumberError] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
-  const [SecurityCode, setSecurityCode] = useState("");
+  const [securityCode, setSecurityCode] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -40,6 +40,7 @@ function Checkout() {
   function handleSecurityCodeChange(e) {
     const value = e.target.value;
     console.log(value);
+    validateSecurityCode(value)
   }
 
   function validateSecurityCode (code: string) {
@@ -274,10 +275,15 @@ function Checkout() {
                       Security Code
                     </label>
                     <input
+                    onChange={handleSecurityCodeChange}
                       required
                       placeholder="Security code"
                       type="number"
-                      className="w-full py-3 mt-3 border border-gray-300 rounded-sm px-2"
+                      className={` ${
+                        securityCode === "error"
+                          ? "w-full py-3 border border-red-500 bg-red-50 rounded-sm px-2"
+                          : "w-full py-3 border border-gray-300 rounded-sm px-2 "
+                      }`}
                     />
                   </div>
                   <label className="hidden" htmlFor="">
