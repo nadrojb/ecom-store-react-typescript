@@ -9,8 +9,8 @@ function Checkout() {
   const [shippingOption, setShippingOption] = useState("option1");
   const [invalidEmail, setInvalidEmail] = useState("");
   const [emailVerificationStatus, setEmailVerificationStatus] = useState(false);
-  const [cardNumberValidity, setCardNumberValidity] = useState(false)
-
+  const [cardNumberStatus, setCardNumberStatus] = useState(false);
+  const [cardNumberError, setCardNumberError] = useState("");
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -22,6 +22,11 @@ function Checkout() {
   function handleEmailChange(e: { target: { value: any } }) {
     const value = e.target.value;
     validateEmail(value);
+  }
+
+  function handleCardNumberChange(e) {
+    const value = e.target.value;
+    validateCardNumber(value);
   }
 
   function validateEmail(email: string) {
@@ -39,21 +44,20 @@ function Checkout() {
     }
   }
 
-  function validateCardNumber (cardNumber: string) {
-    if (cardNumber && !cardNumber.match (
-      /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/
-    ))
-    setCardNumberValidity(false)
-  } else {
-    setCardNumberValidity(true)
-  }
-
-  function handlePaymentSubmission() {
-    if (emailVerificationStatus) {
-      console.log("payment success");
+  function validateCardNumber(cardNumber: string) {
+    if (
+      cardNumber &&
+      !cardNumber.match(
+        /^\d{4}(\s?\d{4}){3}$/
+      )
+    ) {
+      setCardNumberStatus(false);
+      setCardNumberError("error");
     } else {
-      console.log("failed");
+      setCardNumberStatus(true);
+      setCardNumberError("");
     }
+    return;
   }
 
   return (
@@ -158,7 +162,6 @@ function Checkout() {
                 }`}
               >
                 <input
-              
                   type="radio"
                   id="option1"
                   name="delivery-option"
@@ -218,10 +221,15 @@ function Checkout() {
                   <h2 className="text-xl font-medium mb-3">Payment</h2>
                   <label className="hidden">Card number</label>
                   <input
+                    onChange={handleCardNumberChange}
                     required
                     placeholder="Card number"
                     type="text"
-                    className="w-full py-3 border border-gray-300 rounded-sm px-2"
+                    className={` ${
+                      cardNumberError === "error"
+                        ? "w-full py-3 border border-red-500 bg-red-50 rounded-sm px-2"
+                        : "w-full py-3 border border-gray-300 rounded-sm px-2 "
+                    }`}
                   />
                   <div>
                     <label className="hidden" htmlFor="">
@@ -255,7 +263,10 @@ function Checkout() {
                 </div>
               </div>
             </div>
-            <div id="mobile-order-summary" className="w-11/12 mt-6 mx-auto  lg:hidden sm:block md:block">
+            <div
+              id="mobile-order-summary"
+              className="w-11/12 mt-6 mx-auto  lg:hidden sm:block md:block"
+            >
               <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
               <div>
                 {cartItems.map((item) => (
@@ -285,7 +296,6 @@ function Checkout() {
               </div>
             </div>
             <input
-              onSubmit={handlePaymentSubmission}
               type="submit"
               value={"Pay Now"}
               className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-sm h-12 my-4 "
