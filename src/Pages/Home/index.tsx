@@ -166,7 +166,7 @@ function Home({}) {
 
       <section
         onClick={() => setModalState("hidden")}
-        className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 "
+        className="grid grid-cols-2 px-6 gap-6 pt-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-14 max-w-screen-2xl mx-auto "
       >
         {products.map((product) => {
           return <ProductCard product={product} key={product.id} />;

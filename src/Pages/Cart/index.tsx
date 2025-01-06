@@ -9,7 +9,7 @@ function Cart() {
   return (
     <>
       <section className="py-5 border-b shadow-md w-full fixed z-10 bg-white top-0 ">
-        <div className="flex justify-between px-8">
+        <div className="flex justify-between px-8 max-w-screen-2xl mx-auto">
           <Link to={"/"}>
             <svg
               className="w-7 bg-gray"
@@ -36,7 +36,7 @@ function Cart() {
                 </span>
           Your Cart
         </div>
-        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 ">
+        <section className="lg:flex lg:space-x-8 lg:px-6 lg:mt-8 max-w-screen-2xl mx-auto">
           <div className="lg:w-9/12">
             {cartItems.map((item) => (
               <CartProductCard
