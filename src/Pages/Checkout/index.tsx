@@ -124,11 +124,10 @@ const navigate = useNavigate();
                 required
                 className={`w-full border border-gray-300  pt-5 pb-1 px-2 mt-3 rounded-sm ${email}`}
                 type="text"
-              />
+                />
               <label
                 className="relative -top-12 left-2 text-sm text-gray-500"
-                htmlFor=""
-              >
+                >
                 Email
               </label>
             </div>
