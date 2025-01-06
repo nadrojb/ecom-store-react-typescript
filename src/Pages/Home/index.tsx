@@ -44,7 +44,7 @@ function Home({}) {
   return (
     <>
       <section className="py-5 border-b shadow-md w-full fixed z-10 bg-white top-0">
-        <div className="flex justify justify-between px-8">
+        <div className="flex justify justify-between px-8 max-w-screen-2xl mx-auto">
           <h1 className="text-xl font-medium tracking-tighter">LeShop</h1>
           <div className="flex items-center">
             {cartQuantity === 0 ? (
@@ -61,7 +61,7 @@ function Home({}) {
               </>
             ) : (
               <>
-                <span className="bg-red-500 rounded-full px-2 text-white absolute right-4 top-2">
+                <span className="bg-red-500 rounded-full px-2 text-white relative -right-10 -top-4">
                   {cartQuantity}
                 </span>
                 <Link to={"/cart"}>
