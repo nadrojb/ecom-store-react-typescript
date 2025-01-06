@@ -1,6 +1,14 @@
 import { Link } from "react-router";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export function OrderConfirmation() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
       <div className="py-4 border-b border-gray-300 fixed top-0 z-10 w-full bg-white">
