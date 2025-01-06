@@ -80,7 +80,7 @@ function Home({}) {
       </section>
       <div
         id="filetering-modal"
-        className={`flex flex-col px-10 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-7 w-52 text-center space-y-2 font-medium rounded-md bg-gray-100 shadow-sm ${modalState}`}
+        className={`flex flex-col px-10 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-7 w-52 max-w-52 text-center space-y-2 font-medium rounded-md bg-gray-100 shadow-sm ${modalState}`}
       >
         <button
           className=" hover:underline active:underline cursor-pointer"
@@ -154,7 +154,7 @@ function Home({}) {
           </h3>
         </div>
       ) : (
-        <div className="">
+        <div className="max-w-screen-2xl mx-auto">
           <p
             onClick={() => setModalState("")}
             className="mt-24 ml-auto font-medium text-sm border border-gray-700 text-gray-800 w-20 pt-1 pb-1 text-center mr-6 rounded-md cursor-pointer  transition "
