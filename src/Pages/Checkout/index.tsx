@@ -2,10 +2,11 @@ import CheckoutProductCard from "../../Components/CheckoutProductCard";
 import { useCart } from "../../context/CartContext";
 import { useState } from "react";
 import FormatPrice from "../../Utilities/FormatPrice";
+import { useNavigate } from "react-router";
 
 function Checkout() {
   const { cartItems, subTotal } = useCart();
-  const [shippingPrice, setShippingPrice] = useState(0);
+  const [shippingPrice, setShippingPrice] = useState(4.99);
   const [shippingOption, setShippingOption] = useState("option1");
   const [email, setEmail] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
@@ -15,6 +16,8 @@ function Checkout() {
   const [cardExpiryStatus, setCardExpiryStatus] = useState(false);
   const [cardNumberStatus, setCardNumberStatus] = useState(false);
   const [securityCodeStatus, setSecurityCodeStatus] = useState(false);
+
+const navigate = useNavigate();
 
   const totalPrice = subTotal + shippingPrice;
 
@@ -92,14 +95,15 @@ function Checkout() {
   }
 
   function handlePaymentSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (
       cardNumberStatus &&
       securityCodeStatus &&
       emailStatus &&
       cardExpiryStatus
     ) {
-      console.log("payment success");
+      console.log('success');
+      navigate("/checkout/order-confirmation");
     } else {
       console.log("error");
     }
@@ -353,7 +357,7 @@ function Checkout() {
             <input
               type="submit"
               value={"Pay Now"}
-              className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-sm h-12 my-4 "
+              className="w-full text-center text-gray-900 text-xl bg-green-600 rounded-sm h-12 my-4 cursor-pointer"
             />
           </form>
         </div>
