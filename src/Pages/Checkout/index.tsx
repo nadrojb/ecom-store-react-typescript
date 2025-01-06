@@ -38,13 +38,11 @@ const navigate = useNavigate();
 
   function handleExpiryChange(e) {
     const value = e.target.value;
-    console.log(value);
     validateExpiryDate(value);
   }
 
   function handleSecurityCodeChange(e) {
     const value = e.target.value;
-    console.log(value);
     validateSecurityCode(value);
   }
 
