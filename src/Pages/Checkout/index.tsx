@@ -114,7 +114,7 @@ const navigate = useNavigate();
           LeShop
         </h1>
       </div>
-      <section className="w-full lg:flex">
+      <section className="w-full lg:flex max-w-screen-2xl mx-auto">
         <div className="pt-24 lg:pt-24 lg:w-7/12">
           <form onSubmit={handlePaymentSubmit} className="w-10/12 mx-auto">
             <div>
@@ -361,10 +361,10 @@ const navigate = useNavigate();
         </div>
         <section
           id="desktop-order-summary"
-          className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0 overflow-scroll hidden lg:block"
+          className="mb-20 w-10/12 mx-auto lg:w-5/12 lg:bg-gray-50 lg:h-screen lg:px-10 lg:border-l lg:fixed right-0 top-0 overflow-scroll hidden lg:block max-w-screen-2xl"
         >
           <h2 className="text-xl font-medium lg:pt-24">Order Summary</h2>
-          <div className="lg:w-9/12">
+          <div className="lg:w-9/12 max-w-screen-2xl">
             {cartItems.map((item) => (
               <CheckoutProductCard
                 key={item.id}
@@ -376,15 +376,15 @@ const navigate = useNavigate();
               />
             ))}
           </div>
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-3 max-w-screen-sm">
             <h4>Subtotal</h4>
             <h4 className="font-semibold">£{FormatPrice(subTotal)}</h4>
           </div>
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-3 max-w-screen-sm">
             <h4>Shipping</h4>
             <h4 className="font-semibold">£{shippingPrice}</h4>
           </div>
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-3 max-w-screen-sm">
             <h2 className="text-xl font-medium">Total</h2>
             <h2 className="text-xl font-medium">£{FormatPrice(totalPrice)}</h2>
           </div>
