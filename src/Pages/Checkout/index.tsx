@@ -31,12 +31,12 @@ const navigate = useNavigate();
     validateEmail(value);
   }
 
-  function handleCardNumberChange(e) {
+  function handleCardNumberChange(e: { target: { value: any; }; }) {
     const value = e.target.value;
     validateCardNumber(value);
   }
 
-  function handleExpiryChange(e) {
+  function handleExpiryChange(e: { target: { value: any; }; }) {
     const value = e.target.value;
     validateExpiryDate(value);
   }
